@@ -6,6 +6,10 @@ class DeviseCreateGymManagers < ActiveRecord::Migration[6.1]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :first_name, nul: false
+      t.string :last_name, nul: false
+      t.string :first_name_kana, nul: false
+      t.string :last_name_kana, nul: false
 
       ## Recoverable
       t.string   :reset_password_token
