@@ -19,10 +19,10 @@
 - 体育館の利用者を簡単に管理をしたい時
 
 ## 設計書
-[ER図](https://drive.google.com/file/d/1D-sj2-JBn7Uq9FkhXaAhkw9KvYOTvYSL/view?usp=sharing)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/1xONnzm6mA5FF9XMUw3tgYreRWN0KutTKglNSALgaplg/edit?usp=sharing)
-[UI Flows](https://drive.google.com/file/d/1JRWs_emK8AHV34-Qx7b6JH7hbGinnUgE/view?usp=sharing)
-[ワイヤーフレーム](https://drive.google.com/file/d/1e_Bx7Y_kzic25zTVR6WDtHJg0-ZonPru/view?usp=sharing)
+- [ER図](https://drive.google.com/file/d/1D-sj2-JBn7Uq9FkhXaAhkw9KvYOTvYSL/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1xONnzm6mA5FF9XMUw3tgYreRWN0KutTKglNSALgaplg/edit?usp=sharing)
+- [UI Flows](https://drive.google.com/file/d/1JRWs_emK8AHV34-Qx7b6JH7hbGinnUgE/view?usp=sharing)
+- [ワイヤーフレーム](https://drive.google.com/file/d/1e_Bx7Y_kzic25zTVR6WDtHJg0-ZonPru/view?usp=sharing)
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
