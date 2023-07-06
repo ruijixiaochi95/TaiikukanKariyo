@@ -1,0 +1,2 @@
+module GymManager::FacilitysHelper
+end

@@ -1,0 +1,2 @@
+module GymManager::HomesHelper
+end

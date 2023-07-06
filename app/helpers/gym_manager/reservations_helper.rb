@@ -1,0 +1,2 @@
+module GymManager::ReservationsHelper
+end
