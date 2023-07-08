@@ -1,0 +1,41 @@
+<%= form_with model: gym,url:gym_manager_gyms_path, method: :post do |f| %>
+  <div class="form-group row">
+    <label class="col-3">体育館画像</label>
+    <div class="">
+      <%= f.file_field :image, class: "btn" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">体育館名</label>
+    <div class="col-5">
+      <%= f.text_field :name, placeholder: "体育館名" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">郵便番号</label>
+    <div class="col-5">
+      <%= f.text_field :postal_code, placeholder: "郵便番号" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">住所</label>
+    <div class="col-5">
+      <%= f.text_field :address, placeholder: "住所" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">電話番号</label>
+    <div class="col-5">
+      <%= f.text_field :phone_number, placeholder: "電話番号" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">説明</label>
+    <div class="col-5">
+      <%= f.text_area :caption, placeholder: "ここに説明文を記述します" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.submit "新規登録", class: "btn" %>
+  </div>
+<% end %>

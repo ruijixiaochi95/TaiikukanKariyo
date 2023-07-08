@@ -1,29 +1,55 @@
-<h2>Sign up</h2>
+<div class="container py-5 col-md-2 col-md-offset-5">
+  <h4 class="">新規会員登録</h4>
+  <%= form_with model: @gym_manager, url: gym_manager_registration_path, id: 'new_gym_manager', class: 'new_gym_manager', local: true do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "gym_manager/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row">
+    <div class="d-flex flex-column mr-4">
+      <label>(姓)</label>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", size: 12 %>
+    </div>
+    <div class="d-flex flex-column">
+      <label>(名)</label>
+      <%= f.text_field :first_name,autofocus: true, autocomplete: "first_name",  placeholder: "道子", size: 12 %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="d-flex flex-column mr-4">
+      <label>(セイ)</label>
+      <%= f.text_field :last_name_kana, autoforcus: true, autocomplete: "last_name_kana",  placeholder: "レイワ", size: 12 %>
+    </div>
+    <div class="d-flex flex-column">
+      <label>(メイ)</label>
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",  placeholder: "ミチコ", size: 12 %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <label class="">メールアドレス</label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size: 30 %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row">
+    <label>パスワード
+      <% if @minimum_password_length %>
+      (<%= @minimum_password_length %> 文字以上)
+      <% end %>
+    </label>
+    <%= f.password_field :password, autocomplete: "new-password", size: 30 %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="row">
+    <label>パスワード確認用</label>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row">
+    <%= f.submit "新規登録", class: 'btn w-75' %>
   </div>
-<% end %>
+  <% end %>
+</div>
 
-<%= render "gym_manager/shared/links" %>
+<div class="text-center">
+  <%= link_to "ログインはこちら", gym_manager_session_path %>
+</div>

@@ -1,2 +1,7 @@
 <h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<p>体育館管理者の方はこちら</p>
+<%= link_to "こちら", new_gym_manager_registration_path %> <br>
+
+<%= link_to "体育館管理者ログアウト", destroy_gym_manager_session_path, method: :delete %><br>
+<%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %>
+

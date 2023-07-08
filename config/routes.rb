@@ -17,54 +17,38 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about', as: 'about'
   get 'admin' => 'admin/homes#top', as: 'admin'
+  get 'gym_manager' => 'gym_manager/homes#top', as: 'gym_manager'
   
+  # 管理者
   namespace :admin do
     get 'homes/top'
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :gym_managers, only: [:index, :show, :edit, :update]
+    resources :reservations, only: [:index, :show]
+    resources :gyms, only: [:index, :show, :edit, :destroy]
   end
-  namespace :admin do
-    get 'reservations/index'
-    get 'reservations/show'
-  end
-  namespace :admin do
-    get 'gym_managers/index'
-    get 'gym_managers/show'
-    get 'gym_managers/edit'
-  end
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :admin do
-    get 'gyms/index'
-    get 'gyms/show'
-    get 'gyms/edit'
-  end
+  # 体育館管理者
   namespace :gym_manager do
-    get 'reservations/index'
-    get 'reservations/show'
+    get 'homes/top'
+    get 'my_page' => 'gym_managers#show'
+    get 'infomation/edit' => 'gym_managers#edit'
+    resources :reservations, only: [:index, :show]
+    resources :gyms, only: [:new, :create, :index, :show, :edit, :update] do
+      resource :facilitys, only: [:index, :edit]
+    end
   end
-  namespace :gym_manager do
-    get 'facilitys/index'
-    get 'facilitys/edit'
-  end
-  namespace :gym_manager do
-    get 'gyms/new'
-    get 'gyms/index'
-    get 'gyms/show'
-    get 'gyms/edit'
-  end
+  # ユーザー
   namespace :public do
     get 'homes/top'
   end
-  namespace :public do
-    get 'reservations/new'
-    get 'reservations/index'
-    get 'reservations/show'
-  end
-  namespace :public do
-    get 'gyms/index'
-    get 'gyms/show'
+  scope module: :public do
+    get 'users/my_page' => 'users#show'
+    get 'users/infomation/edit' => 'users#edit'
+    patch '/users/infomation' => 'users#update'
+    get 'users/unsubscribe' => 'users#unsubscribe'
+    patch 'users/withdrawal' => 'users#withdrawal'
+    resources :gyms, only: [:index, :show]
+    resources :reservations, only: [:new, :index, :show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -8,22 +8,43 @@
       <ul class="navbar-nav mx-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <%= link_to users_my_page_path, class: 'nav-link text-light' do %>
               <span class="">マイページ</span>
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <%= link_to gyms_path, class: 'nav-link text-light' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <%= link_to reservations_path, class: 'nav-link text-light' do %>
               <span class="">予約履歴</span>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <span class="">ログアウト</span>
+            <% end %>
+          </li>
+        <% elsif gym_manager_signed_in? %>
+          <li>
+            <%= link_to gym_manager_my_page_path, class: 'nav-link text-light' do %>
+              <span class="">マイページ</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to gym_manager_gyms_path, class: 'nav-link text-light' do %>
+              <span class="">体育館一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to gym_manager_reservations_path, class: 'nav-link text-light' do %>
+              <span class="">予約一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_gym_manager_session_path, method: :delete, class: 'nav-link text-light' do %>
               <span class="">ログアウト</span>
             <% end %>
           </li>
@@ -34,7 +55,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <%= link_to gyms_path, class: 'nav-link text-light' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
