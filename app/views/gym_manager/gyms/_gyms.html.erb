@@ -1,0 +1,26 @@
+<div class="row">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>体育館名</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% gyms.each do |gym| %>
+      <tr>
+        <td>
+          <%= link_to gym_manager_gym_path(gym.id) do %>
+          <%= gym.name %>
+          <% end %>
+        </td>
+        <td>
+          <% if gym.is_open ==false %>
+            <p class="text-success"><strong>予約可</strong></p>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

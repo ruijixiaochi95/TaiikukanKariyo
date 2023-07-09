@@ -4,5 +4,5 @@ class GymManager < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :gyms, dependent: :destroy
+  # has_many :gyms, dependent: :destroy
 end

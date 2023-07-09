@@ -1,3 +1,6 @@
-<h1>GymManager::Gyms#index</h1>
-<p>Find me in app/views/gym_manager/gyms/index.html.erb</p>
-<%= link_to "sinnkitouroku", new_gym_manager_gym_path %>
+<div class="container mx-auto py-5">
+  <h4 class="text-center">体育館一覧</h4>
+  <%= link_to "新規登録", new_gym_manager_gym_path, class:"btn" %>
+  <%= render "gyms", gyms: @gyms %>
+</div>
+

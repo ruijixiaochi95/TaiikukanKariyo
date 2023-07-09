@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     registrations: "gym_manager/registrations",
     sessions: 'gym_manager/sessions'
   }
-  
+
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about', as: 'about'
   get 'admin' => 'admin/homes#top', as: 'admin'
   get 'gym_manager' => 'gym_manager/homes#top', as: 'gym_manager'
-  
+
   # 管理者
   namespace :admin do
     get 'homes/top'
@@ -33,8 +33,8 @@ Rails.application.routes.draw do
     get 'my_page' => 'gym_managers#show'
     get 'infomation/edit' => 'gym_managers#edit'
     resources :reservations, only: [:index, :show]
-    resources :gyms, only: [:new, :create, :index, :show, :edit, :update] do
-      resource :facilitys, only: [:index, :edit]
+    resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resource :facilitys, only: [:index, :edit, :destroy]
     end
   end
   # ユーザー
