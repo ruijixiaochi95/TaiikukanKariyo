@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'my_page' => 'gym_managers#show'
     get 'infomation/edit' => 'gym_managers#edit'
+    patch '/infomation' => 'gym_managers#update'
     resources :reservations, only: [:index, :show]
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :facilitys, only: [:index, :edit, :destroy]
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
     patch '/users/infomation' => 'users#update'
     get 'users/unsubscribe' => 'users#unsubscribe'
     patch 'users/withdrawal' => 'users#withdrawal'
+    resources :users, only: [:show, :edit, :update]
     resources :gyms, only: [:index, :show]
     resources :reservations, only: [:new, :index, :show]
   end

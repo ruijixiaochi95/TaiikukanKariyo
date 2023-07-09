@@ -1,1 +1,23 @@
-<div class="container"></div>
+<div class="container py-5 text-center">
+  <h4 class="pb-3">マイページ</h4>
+  <table class="table table-bordered col-7 offset-3">
+    <tr>
+     <td class="col-2">氏名</td>
+     <td class="col-5"><%= @user.last_name %>&emsp;<%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <td class="col-2">カナ</td>
+      <td class="col-5"><%= @user.last_name_kana %>&emsp;<%= @user.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="col-2">電話番号</td>
+      <td class="col-5"><%= @user.phone_number %></td>
+    </tr>
+    <tr>
+      <td class="col-2">メールアドレス</td>
+      <td class="col-5"><%= @user.email %></td>
+    </tr>
+  </table>
+  <%= link_to "予約履歴", reservations_path, class: 'btn' %>
+  <%= link_to "マイページ編集", users_infomation_edit_path, class: 'btn' %>
+</div>
