@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
   def edit
     @user = current_user
   end 
-  # 顧客の登録情報更新
+  # ユーザーの登録情報更新
   def update
     @user = current_user
     if @user.update(user_params)

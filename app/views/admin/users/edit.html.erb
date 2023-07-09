@@ -1,2 +1,37 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container py-5 col-md-2 col-md-offset-5">
+  <h4 class="">会員情報編集</h4>
+  <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+
+  <div class="row">
+    <div class="d-flex flex-column mr-4">
+      <label>(姓)</label>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", size: 12 %>
+    </div>
+    <div class="d-flex flex-column">
+      <label>(名)</label>
+      <%= f.text_field :first_name,autofocus: true, autocomplete: "first_name",  placeholder: "道子", size: 12 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex flex-column mr-4">
+      <label>(セイ)</label>
+      <%= f.text_field :last_name_kana, autoforcus: true, autocomplete: "last_name_kana",  placeholder: "レイワ", size: 12 %>
+    </div>
+    <div class="d-flex flex-column">
+      <label>(メイ)</label>
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",  placeholder: "ミチコ", size: 12 %>
+    </div>
+  </div>
+  <div class="row">
+    <label>電話番号(ハイフンなし)</label>
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: '0000000000', size: 30 %>
+  </div>
+  <div class="row">
+    <label class="">メールアドレス</label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size: 30 %>
+  </div>
+  <div class="row">
+    <%= f.submit "変更を保存", class: 'btn w-75' %>
+  </div>
+  <% end %>
+</div>

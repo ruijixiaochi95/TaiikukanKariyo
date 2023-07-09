@@ -1,2 +1,4 @@
-<h1>Admin::Gyms#index</h1>
-<p>Find me in app/views/admin/gyms/index.html.erb</p>
+<div class="container mx-auto py-5">
+  <h4 class="text-center">体育館一覧</h4>
+  <%= render "gym_manager/gyms/gyms", gyms: @gyms %>
+</div>

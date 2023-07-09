@@ -6,6 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
+        <!--ユーザーがログインしている場合-->
         <% if user_signed_in? %>
           <li>
             <%= link_to users_my_page_path, class: 'nav-link text-light' do %>
@@ -27,6 +28,7 @@
               <span class="">ログアウト</span>
             <% end %>
           </li>
+        <!--体育館管理者がログインしている場合-->
         <% elsif gym_manager_signed_in? %>
           <li>
             <%= link_to gym_manager_my_page_path, class: 'nav-link text-light' do %>
@@ -48,6 +50,34 @@
               <span class="">ログアウト</span>
             <% end %>
           </li>
+        <!--管理者ログインしている場合-->
+        <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+              <span class="">会員一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_gyms_path, class: 'nav-link text-light' do %>
+              <span class="">体育館一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_gym_managers_path, class: 'nav-link text-light' do %>
+              <span class="">体育館管理者一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_reservations_path, class: 'nav-link text-light' do %>
+              <span class="">予約一覧</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <span class="">ログアウト</span>
+            <% end %>
+          </li>
+        <!--どれも当てはまらない場合-->
         <% else %>
           <li>
             <%= link_to about_path, class: 'nav-link text-light' do %>
