@@ -9,6 +9,7 @@ class GymManager::GymsController < ApplicationController
 
   def show
     @gym = Gym.find(params[:id])
+    @facility = Facility.new
   end
 
   def edit

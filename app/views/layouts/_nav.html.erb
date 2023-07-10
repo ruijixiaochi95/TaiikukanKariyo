@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,93 +9,93 @@
         <!--ユーザーがログインしている場合-->
         <% if user_signed_in? %>
           <li>
-            <%= link_to users_my_page_path, class: 'nav-link text-light' do %>
+            <%= link_to users_my_page_path, class: 'nav-link text-warning' do %>
               <span class="">マイページ</span>
             <% end %>
           </li>
           <li>
-            <%= link_to gyms_path, class: 'nav-link text-light' do %>
+            <%= link_to gyms_path, class: 'nav-link text-warning' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to reservations_path, class: 'nav-link text-light' do %>
+            <%= link_to reservations_path, class: 'nav-link text-warning' do %>
               <span class="">予約履歴</span>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <span class="">ログアウト</span>
             <% end %>
           </li>
         <!--体育館管理者がログインしている場合-->
         <% elsif gym_manager_signed_in? %>
           <li>
-            <%= link_to gym_manager_my_page_path, class: 'nav-link text-light' do %>
+            <%= link_to gym_manager_my_page_path, class: 'nav-link text-warning' do %>
               <span class="">マイページ</span>
             <% end %>
           </li>
           <li>
-            <%= link_to gym_manager_gyms_path, class: 'nav-link text-light' do %>
+            <%= link_to gym_manager_gyms_path, class: 'nav-link text-warning' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to gym_manager_reservations_path, class: 'nav-link text-light' do %>
+            <%= link_to gym_manager_reservations_path, class: 'nav-link text-warning' do %>
               <span class="">予約一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_gym_manager_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <%= link_to destroy_gym_manager_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <span class="">ログアウト</span>
             <% end %>
           </li>
         <!--管理者ログインしている場合-->
         <% elsif admin_signed_in? %>
           <li>
-            <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+            <%= link_to admin_users_path, class: 'nav-link text-warning' do %>
               <span class="">会員一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_gyms_path, class: 'nav-link text-light' do %>
+            <%= link_to admin_gyms_path, class: 'nav-link text-warning' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_gym_managers_path, class: 'nav-link text-light' do %>
+            <%= link_to admin_gym_managers_path, class: 'nav-link text-warning' do %>
               <span class="">体育館管理者一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to admin_reservations_path, class: 'nav-link text-light' do %>
+            <%= link_to admin_reservations_path, class: 'nav-link text-warning' do %>
               <span class="">予約一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <span class="">ログアウト</span>
             <% end %>
           </li>
         <!--どれも当てはまらない場合-->
         <% else %>
           <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <%= link_to about_path, class: 'nav-link text-warning' do %>
               <span class="">About</span>
             <% end %>
           </li>
           <li>
-            <%= link_to gyms_path, class: 'nav-link text-light' do %>
+            <%= link_to gyms_path, class: 'nav-link text-warning' do %>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+            <%= link_to new_user_registration_path, class: 'nav-link text-warning' do %>
               <span class="">新規登録</span>
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+            <%= link_to new_user_session_path, class: 'nav-link text-warning' do %>
               <span class="">ログイン</span>
             <% end %>
           </li>

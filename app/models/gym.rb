@@ -1,6 +1,5 @@
 class Gym < ApplicationRecord
-  # belongs_to :gym_manager
-  has_many :facilitys, dependent: :destroy
+  has_many :facilities, dependent: :destroy
   
   has_one_attached :image
   

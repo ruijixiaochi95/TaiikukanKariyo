@@ -10,8 +10,14 @@
       <% gyms.each do |gym| %>
       <tr>
         <td>
-          <%= link_to gym_manager_gym_path(gym.id) do %>
-          <%= gym.name %>
+          <% if gym_manager_signed_in? %>
+            <%= link_to gym_manager_gym_path(gym.id) do %>
+            <%= gym.name %>
+            <% end %>
+          <% elsif admin_signed_in? %>
+            <%= link_to admin_gym_path(gym.id) do %>
+            <%= gym.name %>
+            <% end %>
           <% end %>
         </td>
         <td>

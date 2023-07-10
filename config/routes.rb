@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :gym_managers, only: [:index, :show, :edit, :update]
     resources :reservations, only: [:index, :show]
-    resources :gyms, only: [:index, :show, :edit, :destroy]
+    resources :gyms, only: [:index, :show, :edit, :destroy, :update]
   end
   # 体育館管理者
   namespace :gym_manager do
@@ -35,8 +35,8 @@ Rails.application.routes.draw do
     patch '/infomation' => 'gym_managers#update'
     resources :reservations, only: [:index, :show]
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-      resource :facilitys, only: [:index, :edit, :destroy]
-    end
+      resources :facilities, only: [:index, :edit, :destroy, :update, :create]
+    end 
   end
   # ユーザー
   namespace :public do
