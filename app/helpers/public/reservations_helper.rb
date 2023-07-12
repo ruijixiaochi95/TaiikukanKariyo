@@ -14,19 +14,19 @@ module Public::ReservationsHelper
              "16:00",
              "16:30"]
   end
-  
-  def check_reservation(reservaions, day, time)
+
+  def check_reservation(facility, reservations, day, time)
     result = false
-    reservations_count = @reservations.count
+    reservations_count = reservations.count
     if reservations_count > 1
-      reservations each do |reservation|
-        result reservation[:day].eql?(day.strftime("%Y-%m-%d")) && reservation[:time].eql?(time)
+      reservations.each do |reservation|
+        result = reservation[:day].eql?(day.strftime("%Y-%m-%d")) && reservation[:time].eql?(time)
         return result if result
-      end 
+      end
     elsif reservations_count == 1
-       result = reservations[0][:day].eql?(day.strftime("%Y-%m-%d")) && reservations[0][:time].eql?(time)
-       return result if result
-     end 
-     return result
-   end 
+      result = reservations[0][:day].eql?(day.strftime("%Y-%m-%d")) && reservations[0][:time].eql?(time)
+      return result
+    end
+    result
+  end
 end
