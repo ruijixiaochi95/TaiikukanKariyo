@@ -1,4 +1,4 @@
 class Facility < ApplicationRecord
   belongs_to :gym
-  belongs_to :gym_manager
+  has_many :reservations
 end

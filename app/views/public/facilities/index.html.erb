@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <table class="table content col-6">
+      <thead>
+        <tr>
+          <th>予約したい設備を選択してください</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @facilities.each do |facility| %>
+        <tr>
+          <td>
+            <%= link_to gym_facility_reservations_path(@gym, facility) do %>
+            <%= facility.name %>
+            <%= facility.id %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

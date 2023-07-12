@@ -10,5 +10,9 @@
       <%= @gym.phone_number %><br>
       <%= @gym.caption %>
     </div>
+    <% @gym.facilities.each do |facility| %>
+    <%= facility.name %>
+  <% end %>
   </div>
+  <%= link_to "予約する", gym_facilities_path(@gym.id) %>
 </div>

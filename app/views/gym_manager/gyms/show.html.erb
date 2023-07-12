@@ -1,8 +1,11 @@
 <div class="container py-5">
-  <%= render 'show', gym: @gym, facility: @facility %>
-  
-  <%= form_with model:[@gym, @facility], url:edit_gym_manager_gym_facility_path do |f| %>
-    <%= f.text_area :name %>
+  <%= render 'show', gym: @gym %>
+  <% @gym.facilities.each do |facility| %>
+    <%= facility.name %>
+  <%= link_to '削除', gym_manager_gym_facility_path(facility.gym, facility), class: 'btn-sm btn-danger', method: :delete %>
+  <% end %>
+  <%= form_with model:[:gym_manager, @gym, @facility] do |f| %>
+    <%= f.text_field :name %>
     <%= f.submit "送信" %>
   <% end %>
 </div>
