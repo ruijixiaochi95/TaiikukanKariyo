@@ -18,6 +18,33 @@
       <td class="col-5"><%= @user.email %></td>
     </tr>
   </table>
-  <%= link_to "予約履歴", reservations_path, class: 'btn' %>
   <%= link_to "マイページ編集", users_infomation_edit_path, class: 'btn' %>
+  
+  <h5 class="py-3">予約一覧</h5>
+  <table class="table table-bordered col-7 offset-3">
+    <thead>
+      <tr>
+        <th scope"col">予約日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_reservations.each do |user_reservation| %>
+      <tr>
+        <td>
+          <%= user_reservation.day %>
+          <%= user_reservation.time %>
+        </td>
+        <td>
+          <%= link_to '詳細', gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation) %>
+          <%= link_to '削除', reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+        </td>
+      </tr>
+      <% end %>
+      <% if @user_reservations.blank? %>
+      <tr>
+        <td>予約はありません。</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

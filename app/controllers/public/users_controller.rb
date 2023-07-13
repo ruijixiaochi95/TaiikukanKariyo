@@ -2,6 +2,9 @@ class Public::UsersController < ApplicationController
   # ユーザーマイページ
   def show
     @user = current_user
+    @user_reservations = current_user.reservations.where("start_time >= ?", DateTime.current).order(day: :desc)
+    @visit_historys = current_user.reservations.where("start_time < ?", DateTime.current).where("start_time > ?", DateTime.current << 12).order(day: :desc)
+    @reservations = @user.reservations.includes(:facility)
   end 
   # ユーザー編集
   def edit
