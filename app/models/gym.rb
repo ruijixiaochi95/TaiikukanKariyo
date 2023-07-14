@@ -3,6 +3,9 @@ class Gym < ApplicationRecord
   
   has_one_attached :image
   
+  geocoded_by :address
+  after_validation :geocode
+  
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join("app/assets/images/no_image.png")

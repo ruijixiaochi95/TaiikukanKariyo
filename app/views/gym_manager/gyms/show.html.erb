@@ -4,8 +4,45 @@
     <%= facility.name %>
   <%= link_to '削除', gym_manager_gym_facility_path(facility.gym, facility), class: 'btn-sm btn-danger', method: :delete %>
   <% end %>
-  <%= form_with model:[:gym_manager, @gym, @facility] do |f| %>
+  
+  <%= form_with model: [:gym_manager, @gym, @facility] do |f| %>
     <%= f.text_field :name %>
     <%= f.submit "送信" %>
   <% end %>
+  
+  <%= link_to "予約する", gym_facilities_path(@gym.id) %>
+  
+<div class="map">
+  <div id="map" style="width: 300px; height: 300px;">
+  </div>
 </div>
+</div>
+
+  
+
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @gym.latitude %>, lng: <%= @gym.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: test
+                  });
+    var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @gym.address %>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    var marker = new google.maps.Marker({
+                 position:test,
+                 map: map,
+                 title: contentString
+    });
+
+    marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>

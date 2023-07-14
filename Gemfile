@@ -60,3 +60,4 @@ gem 'kaminari','~> 1.2.1'
 gem "simple_calendar", "~> 2.0"
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'dotenv-rails'

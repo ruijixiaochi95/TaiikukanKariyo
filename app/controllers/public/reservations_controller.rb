@@ -17,7 +17,6 @@ class Public::ReservationsController < ApplicationController
   end
 
   def show
-    # @reservation = @facility.reservations.find(params[:id])
     @reservation = Reservation.find(params[:id])
   end
 
