@@ -10,16 +10,19 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to users_my_page_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-user"></i>
               <span class="">マイページ</span>
             <% end %>
           </li>
           <li>
             <%= link_to gyms_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-indent"></i>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-warning' do %>
+              <i class="fas fa-sign-out-alt"></i>
               <span class="">ログアウト</span>
             <% end %>
           </li>
@@ -75,12 +78,8 @@
         <!--どれも当てはまらない場合-->
         <% else %>
           <li>
-            <%= link_to about_path, class: 'nav-link text-warning' do %>
-              <span class="">About</span>
-            <% end %>
-          </li>
-          <li>
             <%= link_to gyms_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-indent"></i>
               <span class="">体育館一覧</span>
             <% end %>
           </li>

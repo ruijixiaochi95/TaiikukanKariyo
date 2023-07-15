@@ -11,13 +11,17 @@
   </head>
 
   <body>
+    <div class="content">
     <%= render 'layouts/header' %>
     <%= render 'layouts/nav' %>
     <main>
-      <div class="container pt-4">
+      <div class="container">
         <p id="notice"><%= notice %></p>
       </div>
+      
     <%= yield %>
     </main>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

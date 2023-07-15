@@ -1,7 +1,18 @@
-<h1>Public::Homes#top</h1>
-<p>体育館管理者の方はこちら</p>
-<%= link_to "こちら", new_gym_manager_registration_path %> <br>
+<div style="text-align: center;" class="pt−2 pb-5">
+  <h1><span class="display">TaiikukanKariyo!</span></h1>
+  <p>
+    こちらのサイトでは誰でも気軽に体育館を借りることが出来ます。<br>
+    予約をするには、会員登録が必要となります。<br>
+    ぜひご利用ください。
+  </p>
+  <div>
+    <%= image_tag 'gym.jpg', :size => '900x400' %>
+  </div>
+</div>
 
-<%= link_to "体育館管理者ログアウト", destroy_gym_manager_session_path, method: :delete %><br>
-<%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %>
+<div style="text-align: center;" class="pt−2 pb-5">
+    <p>体育館管理者の方は</p>
+    <%= link_to "こちら", new_gym_manager_registration_path %> <br>
+</div>
+  
 

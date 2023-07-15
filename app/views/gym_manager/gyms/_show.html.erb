@@ -1,19 +1,33 @@
-<div class="row">
-  <div class="col-5">
-    <%= image_tag gym.get_image(500,300) %>
+<div class="row justify-content-center">
+  <div class="col-5 ">
+    <%= image_tag gym.get_image(500,300), class: 'rounded my-2' %>
   </div>
   <div class="col-4">
-    <h5 class="pt-4"><%= gym.name %></h5>
+    <h5 class="py-2"><strong><%= gym.name %></strong></h5>
     <%= gym.postal_code %><br>
     <%= gym.address %><br>
     <%= gym.phone_number %><br>
     <%= gym.caption %>
   </div>
+  <% gym.facilities.each do |facility| %>
+    <%= facility.name %>
+    <% if gym_manager_signed_in? %>
+      <%= link_to '削除', gym_manager_gym_facility_path(facility.gym, facility), class: 'btn btn-sm btn-danger', method: :delete %>
+    <% end %>
+  <% end %>
+
   <% if gym_manager_signed_in? %>
     <%= link_to "編集する", edit_gym_manager_gym_path, class: "btn" %>
     <%= link_to "削除する", gym_manager_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn" %>
   <% elsif admin_signed_in? %>
+
     <%= link_to "編集する", edit_admin_gym_path, class: "btn" %>
     <%= link_to "削除する", admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn" %>
+  <% else %>
+  <%= link_to "予約する", gym_facilities_path(gym.id), class: "btn" %>
   <% end %>
+</div>
+<div class="map">
+    <div id="map" style="width: 300px; height: 300px;"></div>
+  </div>
 </div>
