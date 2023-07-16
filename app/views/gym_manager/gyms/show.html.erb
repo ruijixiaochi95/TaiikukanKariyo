@@ -1,9 +1,12 @@
-<div class="container py-5">
+<div class="container pb-5">
   <%= render 'show', gym: @gym, facility: @facility %>
+  <div class="row justify-content-center">
+    <%= form_with(url: gym_facility_reservations_path(@gym), method: :get) do |f| %>
+        <div class="form-group">
+          <%= f.collection_select(:facility_id, @facilities, :id, :name, prompt: "設備を選択してください", class: "form-control") %>
+        </div>
+        <%= f.submit("予約する", class: "btn btn-base") %>
+      <% end %>
+  </div>
 </div>
 <%= render 'gym_manager/gyms/map', gym: @gym %>
-<%= form_with model: [:gym_manager, @gym, @facility] do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit "送信" %>
-    
-  <% end %>

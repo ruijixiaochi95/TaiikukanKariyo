@@ -1,33 +1,71 @@
 <div class="row justify-content-center">
-  <div class="col-5 ">
-    <%= image_tag gym.get_image(500,300), class: 'rounded my-2' %>
+  <div class="col-6">
+    <%= image_tag gym.get_image(500,400), class: 'rounded my-2' %>
   </div>
-  <div class="col-4">
-    <h5 class="py-2"><strong><%= gym.name %></strong></h5>
-    <%= gym.postal_code %><br>
-    <%= gym.address %><br>
-    <%= gym.phone_number %><br>
-    <%= gym.caption %>
+  <div class="col-4 mt-5">
+    <h5 class="py-2"><strong>&ensp;<%= gym.name %></strong></h5>
+    <div class="ml-2">
+      〒&ensp;<%= gym.postal_code %><br>
+      <i class="fas fa-map-marker-alt"></i>&ensp;<%= gym.address %><br>
+      <i class="fas fa-phone"></i>&ensp;<%= gym.phone_number %><br>
+      <%= gym.caption %>
+      <% if user_signed_in? %>
+      
+      <% else %>
+        <p class="pt-4">※予約をするには、<%= link_to "こちら", new_user_registration_path %>から会員登録をしてください。</p>
+      <% end %>
+    </div>
   </div>
-  <% gym.facilities.each do |facility| %>
-    <%= facility.name %>
-    <% if gym_manager_signed_in? %>
-      <%= link_to '削除', gym_manager_gym_facility_path(facility.gym, facility), class: 'btn btn-sm btn-danger', method: :delete %>
+  <div class="col-2 d-flex align-items-center">
+    <div class="map pt-5">
+      <div id="map" style="width: 200px; height: 200px;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <% if admin_signed_in? %>
+    <div class="col-6 offset-6">こちらから体育館情報の編集が出来ます。
+    <%= link_to edit_admin_gym_path do %>
+      <i class="fas fa-edit"></i>編集する
     <% end %>
-  <% end %>
-
-  <% if gym_manager_signed_in? %>
-    <%= link_to "編集する", edit_gym_manager_gym_path, class: "btn" %>
-    <%= link_to "削除する", gym_manager_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn" %>
-  <% elsif admin_signed_in? %>
-
-    <%= link_to "編集する", edit_admin_gym_path, class: "btn" %>
-    <%= link_to "削除する", admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn" %>
-  <% else %>
-  <%= link_to "予約する", gym_facilities_path(gym.id), class: "btn" %>
-  <% end %>
+    <%= link_to "削除する", admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+      <i class="fas fa-trash-alt"></i>削除する
+    <% end %>
+  </div>
+  <% elsif gym_manager_signed_in? %>
+    <div class="col-6 offset-6">
+      <p style="font-size: 20px;"><i class="fas fa-users-cog"></i>管理者の方はこちら</p>
+      <span>こちらのボタンから体育館の編集が出来ます。</span><br>
+      <%= link_to edit_gym_manager_gym_path do %>
+        <i class="fas fa-edit"></i>編集する
+      <% end %>&emsp;
+      <%= link_to gym_manager_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+        <i class="fas fa-trash-alt"></i>削除する
+      <% end %>
+    </div>
 </div>
-<div class="map">
-    <div id="map" style="width: 300px; height: 300px;"></div>
+<div class="row justify-content-center mt-3">
+  <div class="col-6 offset-6">
+    <p style="font-size: 18px;">設備登録</p>
+    <table class="table table-borderless">
+    <% if gym.facilities.any? %>
+      <% gym.facilities.each do |facility| %>
+        <tr>
+          <td><%= facility.name %></td>
+          <td>
+            <%= link_to gym_manager_gym_facility_path(facility.gym, facility), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td>設備登録を行わないと予約を受けることが出来ません。<br>フォームから登録してください。</td>
+      </tr>
+    <% end %>
+    </table>
   </div>
 </div>
+  <% end %>

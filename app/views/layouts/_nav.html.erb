@@ -35,6 +35,7 @@
           </li>
           <li>
             <%= link_to gym_manager_gyms_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-indent"></i>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
@@ -45,6 +46,7 @@
           </li>
           <li>
             <%= link_to destroy_gym_manager_session_path, method: :delete, class: 'nav-link text-warning' do %>
+              <i class="fas fa-sign-out-alt"></i>
               <span class="">ログアウト</span>
             <% end %>
           </li>
@@ -57,6 +59,7 @@
           </li>
           <li>
             <%= link_to admin_gyms_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-indent"></i>
               <span class="">体育館一覧</span>
             <% end %>
           </li>
@@ -72,6 +75,7 @@
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-warning' do %>
+              <i class="fas fa-sign-out-alt"></i>
               <span class="">ログアウト</span>
             <% end %>
           </li>
@@ -85,11 +89,13 @@
           </li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-user-plus"></i>
               <span class="">新規登録</span>
             <% end %>
           </li>
           <li>
             <%= link_to new_user_session_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-sign-in-alt"></i>
               <span class="">ログイン</span>
             <% end %>
           </li>

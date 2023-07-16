@@ -1,5 +1,19 @@
-<div class="container py-5">
+<div class="container pb-5">
   <%= render 'gym_manager/gyms/show', gym: @gym %>
+  <%= render 'gym_manager/gyms/map', gym: @gym %>
+  
+  <%= form_with url: gym_facility_reservations_path(@gym, ), method: :get, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.select(:facility_id, options_for_select(@facilities.map { |facility| [facility.name, facility.id] }), prompt: "設備を選択してください", class: "form-control") %>
+  </div>
+  <%= f.submit("予約する", class: "btn btn-base") %>
+<% end %>
 
-</div>
-<%= render 'gym_manager/gyms/map', gym: @gym %>
+<script>
+$(document).on("change", "#facility-select", function() {
+  var selectedFacilityId = $(this).val();
+  $("#hidden-facility-id").val(selectedFacilityId);
+});
+</script>
+
+
