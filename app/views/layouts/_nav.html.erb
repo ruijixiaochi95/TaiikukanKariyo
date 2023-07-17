@@ -54,6 +54,7 @@
         <% elsif admin_signed_in? %>
           <li>
             <%= link_to admin_users_path, class: 'nav-link text-warning' do %>
+            <i class="fas fa-users"></i>
               <span class="">会員一覧</span>
             <% end %>
           </li>
@@ -65,11 +66,13 @@
           </li>
           <li>
             <%= link_to admin_gym_managers_path, class: 'nav-link text-warning' do %>
+             <i class="fas fa-users-cog"></i>
               <span class="">体育館管理者一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to admin_reservations_path, class: 'nav-link text-warning' do %>
+              <i class="far fa-calendar-plus"></i>
               <span class="">予約一覧</span>
             <% end %>
           </li>

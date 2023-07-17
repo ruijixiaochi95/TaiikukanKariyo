@@ -31,7 +31,7 @@
     <%= link_to edit_admin_gym_path do %>
       <i class="fas fa-edit"></i>編集する
     <% end %>
-    <%= link_to "削除する", admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+    <%= link_to admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
       <i class="fas fa-trash-alt"></i>削除する
     <% end %>
   </div>

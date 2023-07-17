@@ -20,6 +20,12 @@ class Admin::GymsController < ApplicationController
     end 
   end 
   
+  def destroy
+    @gym = Gym.find(params[:id])
+    @gym.destroy
+    redirect_to admin_gyms_path
+  end 
+  
   private
   def gym_params
     params.require(:gym).permit(:name, :postal_code, :address, :phone_number, :caption, :is_open, :image)
