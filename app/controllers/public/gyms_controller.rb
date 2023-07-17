@@ -7,5 +7,10 @@ class Public::GymsController < ApplicationController
     @gym = Gym.find(params[:id])
     @facilities = @gym.facilities
     @facility = Facility.find(params[:facility_id]) if params[:facility_id].present?
-  end
+  
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end 
 end

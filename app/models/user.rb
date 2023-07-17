@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :destroy
+  
+  # 退会してなければtrueを返す
+  def active_for_authetication?
+    super && (is_active == false)
+  end
          
   validates :last_name, presence: true
   validates :first_name, presence: true
