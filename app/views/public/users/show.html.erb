@@ -41,7 +41,7 @@
         </td>
         <td>
           <%= link_to '詳細', gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation) %>
-          <%= link_to '削除', reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+          <%= link_to '削除', gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
         </td>
       </tr>
       <% end %>

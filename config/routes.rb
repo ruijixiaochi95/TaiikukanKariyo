@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     get 'infomation/edit' => 'gym_managers#edit'
     patch '/infomation' => 'gym_managers#update'
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-      resources :facilities, only: [:destroy, :create, :edit, :update]
+      resources :facilities, only: [:destroy, :create, :edit, :update] 
     end 
     resources :reservations
   end
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
         resources :reservations
       end 
     end
-    resources :reservations
+    # resources :reservations
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

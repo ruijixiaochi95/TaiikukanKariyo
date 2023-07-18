@@ -4,7 +4,7 @@ class GymManager::GymsController < ApplicationController
   end
 
   def index
-    @gyms = Gym.all
+    @gyms = current_gym_manager.gyms
   end
 
   def show
@@ -18,6 +18,7 @@ class GymManager::GymsController < ApplicationController
 
   def create
     @gym = Gym.new(gym_params)
+    @gym.gym_manager_id = current_gym_manager.id
     if @gym.save
       redirect_to gym_manager_gym_path(@gym.id)  
     else

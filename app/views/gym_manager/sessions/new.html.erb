@@ -1,14 +1,14 @@
-<div class="container py-5 col-md-2 col-md-offset-5">
-  <h4 class="">ログイン</h4>
+<div class="container py-5 col-md-2">
+  <h4 class="text-center">ログイン</h4>
 
   <%= form_with model: @gym_manager, url: gym_manager_session_path do |f| %>
-  <div class="row d-flex flex-column mb-3">
+  <div class="row justify-content-center d-flex flex-column mb-3">
     <label>メールアドレス</label>
     <div>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size: 50 %>
     </div>
   </div>
-  <div class="row d-flex flex-column mb-3">
+  <div class="row justify-content-center d-flex flex-column mb-3">
     <label>パスワード</label>
     <div>
       <%= f.password_field :password, autocomplete: "current-password", size: 50 %>
@@ -16,7 +16,7 @@
   </div>
 
   <div>
-    <%= f.submit "ログイン", class: 'btn w-75' %>
+    <%= f.submit "ログイン", class: 'btn btn-base' %>
   </div>
   <% end %>
 </div>

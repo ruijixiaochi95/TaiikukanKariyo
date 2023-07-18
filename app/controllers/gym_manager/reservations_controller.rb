@@ -1,5 +1,7 @@
 class GymManager::ReservationsController < ApplicationController
+  
   def index
+    
   end
 
   def show
