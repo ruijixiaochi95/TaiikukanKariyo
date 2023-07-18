@@ -1,32 +1,4 @@
 <div class="container py-5 text-center">
-  <h4 class="pb-3">会員詳細</h4>
-  <table class="table table-bordered col-7 offset-3">
-    <tr>
-     <td class="col-2">氏名</td>
-     <td class="col-5"><%= @user.last_name %>&emsp;<%= @user.first_name %></td>
-    </tr>
-    <tr>
-      <td class="col-2">カナ</td>
-      <td class="col-5"><%= @user.last_name_kana %>&emsp;<%= @user.first_name_kana %></td>
-    </tr>
-    <tr>
-      <td class="col-2">電話番号</td>
-      <td class="col-5"><%= @user.phone_number %></td>
-    </tr>
-    <tr>
-      <td class="col-2">メールアドレス</td>
-      <td class="col-5"><%= @user.email %></td>
-    </tr>
-    <tr>
-      <td class="col-2>">会員ステータス</td>
-      <td class="col-5">
-        <% if @user.is_active == false %>
-          <span class="text-success">有効</span>
-        <% else %>
-          <span class="">退会</span>
-        <% end %></td>
-    </tr>
-  </table>
-  <%= link_to "予約履歴", admin_reservations_path, class: 'btn btn-base' %>&ensp;
-  <%= link_to "会員編集", edit_admin_user_path, class: 'btn btn-base' %>
+  <%= render "public/users/show", user: @user, user_reservations: @user_reservations %> 
+</div>
 </div>

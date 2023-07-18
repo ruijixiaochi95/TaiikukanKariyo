@@ -25,10 +25,11 @@ Rails.application.routes.draw do
   # 管理者
   namespace :admin do
     get 'homes/top'
-    resources :users, only: [:index, :show, :edit, :update]
     resources :gym_managers, only: [:index, :show, :edit, :update]
-    resources :reservations, only: [:index, :show]
-    resources :gyms, only: [:index, :show, :edit, :destroy, :update]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :gyms, only: [:index, :show, :edit, :destroy, :update] 
+    resources :facilities, only: [:show, :index, :destroy]
+    resources :reservations
   end
   # 体育館管理者
   namespace :gym_manager do
@@ -39,7 +40,6 @@ Rails.application.routes.draw do
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :facilities, only: [:destroy, :create, :edit, :update] 
     end 
-    resources :reservations
   end
   # ユーザー
   namespace :public do

@@ -1,2 +1,26 @@
-<h1>GymManager::Reservations#show</h1>
-<p>Find me in app/views/gym_manager/reservations/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center title">
+      <h4>予約詳細画面</h1>
+    </div>
+    <div class="col-12 mt-3 text-center content">
+      <div>
+        <strong><%= reservation.facility.gym.name %></strong>
+      </div>
+      <div>
+        <strong><%= reservation.facility.name %></strong>
+      </div>
+      <div>
+        <label><strong>日付：</strong></label>
+        <p style="display:inline;"><%= reservation.day %></p>
+      </div>
+      <div>
+        <label><strong>時間：</strong></label>
+        <p style="display:inline;"><%= reservation.time %></p>
+      </div>
+    </div>
+    <div class="col-12 text-right">
+      <%= link_to '予約画面に戻る', gym_facility_reservations_path(@gym, @facility) %>
+    </div>
+  </div>
+</div>

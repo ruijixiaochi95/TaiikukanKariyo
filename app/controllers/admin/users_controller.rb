@@ -6,6 +6,7 @@ class Admin::UsersController < ApplicationController
   # 会員詳細
   def show
     @user = User.find(params[:id])
+    @user_reservations = @user.reservations.where("start_time >= ?", DateTime.current).order(day: :desc)
   end
   # 会員編集
   def edit
