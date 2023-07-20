@@ -22,13 +22,15 @@ class Public::ReservationsController < ApplicationController
 
   def create
     @reservation = @facility.reservations.new(reservation_params)
+    @reservation.facility_id = @facility.id
+    @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to gym_facility_reservation_path(@gym, @facility, @reservation)
     else
       render 'new'
     end
   end
-  
+
   def destroy
     @reservation = Reservation.find(params[:id])
     if @reservation.destroy
@@ -37,7 +39,7 @@ class Public::ReservationsController < ApplicationController
     else
       render 'show'
     end
-  end 
+  end
 
   private
 

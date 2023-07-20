@@ -26,5 +26,9 @@
     <div class="col-12 text-right">
       <%= link_to '予約一覧に戻る', admin_reservations_path %>
     </div>
+  <% else %>
+    <div class="col-12 text-right">
+      <%= link_to '予約一覧に戻る', gym_manager_reservations_path %>
+    </div>
   <% end %>
 </div>

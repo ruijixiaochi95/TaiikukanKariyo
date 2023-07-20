@@ -5,4 +5,5 @@ class GymManager < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :gyms, dependent: :destroy
+  has_many :reservations
 end

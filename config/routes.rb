@@ -38,8 +38,11 @@ Rails.application.routes.draw do
     get 'infomation/edit' => 'gym_managers#edit'
     patch '/infomation' => 'gym_managers#update'
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-      resources :facilities, only: [:destroy, :create, :edit, :update] 
+      resources :facilities, only: [:destroy, :create, :edit, :update] do
+        resources :reservations
+      end 
     end 
+    resources :reservations
   end
   # ユーザー
   namespace :public do
