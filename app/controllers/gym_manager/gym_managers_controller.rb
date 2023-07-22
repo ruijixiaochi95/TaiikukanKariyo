@@ -1,4 +1,5 @@
 class GymManager::GymManagersController < ApplicationController
+  before_action :authenticate_gym_manager!
    # 体育館管理者マイページ
   def show
     @gym_manager = current_gym_manager

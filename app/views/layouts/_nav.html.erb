@@ -11,43 +11,45 @@
           <li>
             <%= link_to users_my_page_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-user"></i>
-              <span class="">マイページ</span>
+              <span>マイページ</span>
             <% end %>
           </li>
           <li>
             <%= link_to gyms_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-indent"></i>
-              <span class="">体育館一覧</span>
+              <span>体育館一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <i class="fas fa-sign-out-alt"></i>
-              <span class="">ログアウト</span>
+              <span>ログアウト</span>
             <% end %>
           </li>
         <!--体育館管理者がログインしている場合-->
         <% elsif gym_manager_signed_in? %>
           <li>
             <%= link_to gym_manager_my_page_path, class: 'nav-link text-warning' do %>
-              <span class="">マイページ</span>
+              <i class="fas fa-user"></i>
+              <span>マイページ</span>
             <% end %>
           </li>
           <li>
             <%= link_to gym_manager_gyms_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-indent"></i>
-              <span class="">体育館一覧</span>
+              <span>体育館一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to gym_manager_reservations_path, class: 'nav-link text-warning' do %>
-              <span class="">予約一覧</span>
+              <i class="far fa-calendar-plus"></i>
+              <span>予約一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_gym_manager_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <i class="fas fa-sign-out-alt"></i>
-              <span class="">ログアウト</span>
+              <span>ログアウト</span>
             <% end %>
           </li>
         <!--管理者ログインしている場合-->
@@ -55,31 +57,31 @@
           <li>
             <%= link_to admin_users_path, class: 'nav-link text-warning' do %>
             <i class="fas fa-users"></i>
-              <span class="">会員一覧</span>
+              <span>会員一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to admin_gyms_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-indent"></i>
-              <span class="">体育館一覧</span>
+              <span>体育館一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to admin_gym_managers_path, class: 'nav-link text-warning' do %>
              <i class="fas fa-users-cog"></i>
-              <span class="">体育館管理者一覧</span>
+              <span>体育館管理者一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to admin_reservations_path, class: 'nav-link text-warning' do %>
               <i class="far fa-calendar-plus"></i>
-              <span class="">予約一覧</span>
+              <span>予約一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-warning' do %>
               <i class="fas fa-sign-out-alt"></i>
-              <span class="">ログアウト</span>
+              <span>ログアウト</span>
             <% end %>
           </li>
         <!--どれも当てはまらない場合-->
@@ -87,19 +89,19 @@
           <li>
             <%= link_to gyms_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-indent"></i>
-              <span class="">体育館一覧</span>
+              <span>体育館一覧</span>
             <% end %>
           </li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-user-plus"></i>
-              <span class="">新規登録</span>
+              <span>新規登録</span>
             <% end %>
           </li>
           <li>
             <%= link_to new_user_session_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-sign-in-alt"></i>
-              <span class="">ログイン</span>
+              <span>ログイン</span>
             <% end %>
           </li>
         <% end %>

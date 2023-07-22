@@ -1,16 +1,18 @@
 class Admin::GymsController < ApplicationController
+  before_action :authenticate_admin!
+  # 体育館一覧
   def index
     @gyms = Gym.all
   end
-
+  # 体育館詳細
   def show
     @gym = Gym.find(params[:id])
   end
-
+  # 体育館編集
   def edit
     @gym = Gym.find(params[:id])
   end
-  
+  # 体育館更新
   def update
     @gym = Gym.find(params[:id])
     if @gym.update(gym_params)
@@ -19,7 +21,7 @@ class Admin::GymsController < ApplicationController
       render "edit"
     end 
   end 
-  
+  # 体育館削除
   def destroy
     @gym = Gym.find(params[:id])
     @gym.destroy

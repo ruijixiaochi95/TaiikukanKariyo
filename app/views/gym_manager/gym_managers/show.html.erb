@@ -1,6 +1,6 @@
-<div class="container py-5 text-center">
+<div class="container col-6 py-5 text-center">
   <h4 class="pb-3">マイページ</h4>
-  <table class="table table-bordered col-7 offset-3">
+  <table class="table table-bordered justify-content-center">
     <tr>
      <td class="col-2">氏名</td>
      <td class="col-5"><%= @gym_manager.last_name %>&emsp;<%= @gym_manager.first_name %></td>
@@ -14,5 +14,5 @@
       <td class="col-5"><%= @gym_manager.email %></td>
     </tr>
   </table>
-  <%= link_to "マイページ編集", gym_manager_infomation_edit_path, class: 'btn' %>
+  <%= link_to "マイページ編集", gym_manager_infomation_edit_path, class: 'btn btn-base' %>
 </div>

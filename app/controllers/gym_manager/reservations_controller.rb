@@ -1,4 +1,5 @@
 class GymManager::ReservationsController < ApplicationController
+  before_action :authenticate_gym_manager!
 
   def index
     @reservations = Reservation.joins(:facility).where(facilities: { gym_id: current_gym_manager.gyms.pluck(:id) })

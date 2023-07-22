@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   # 管理者
   namespace :admin do
-    get 'homes/top'
+    get "search" => "searches#search"
     resources :gym_managers, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
     resources :gyms, only: [:index, :show, :edit, :destroy, :update] 
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   end
   # 体育館管理者
   namespace :gym_manager do
-    get 'homes/top'
+    get "search" => "searches#search"
     get 'my_page' => 'gym_managers#show'
     get 'infomation/edit' => 'gym_managers#edit'
     patch '/infomation' => 'gym_managers#update'
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   end
   # ユーザー
   namespace :public do
+    get "search" => "searches#search"
     get 'homes/top'
   end
   scope module: :public do

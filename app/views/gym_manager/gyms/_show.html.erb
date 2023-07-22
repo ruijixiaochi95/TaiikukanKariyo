@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center col-md-12">
   <div class="col-6">
     <%= image_tag gym.get_image(500,400), class: 'rounded my-2' %>
   </div>
@@ -11,8 +11,10 @@
       <%= gym.caption %>
       <% if user_signed_in? %>
         <div class="form-group mt-3">
-          <%= link_to '予約する', gym_facilities_path(gym), class: 'btn btn-base' %> 
+          <%= link_to '予約する', gym_facilities_path(gym), class: 'btn btn-base' %>
         </div>
+      <% elsif gym_manager_signed_in? %>
+      <% elsif admin_signed_in? %>
       <% else %>
         <p class="pt-4">※予約をするには、<%= link_to "こちら", new_user_registration_path %>から会員登録をしてください。</p>
       <% end %>
@@ -54,8 +56,8 @@
     <% if gym.facilities.any? %>
       <% gym.facilities.each do |facility| %>
         <tr>
-          <td><%= facility.name %></td>
-          <td>
+          <td style="width: 5%;"><%= facility.name %></td>
+          <td style="width: 5%;">
             <%= link_to gym_manager_gym_facility_path(facility.gym, facility), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>

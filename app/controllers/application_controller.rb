@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :search
+  
+  def search
+    @q = Gym.ransack(params[:q])
+    @item = @q.result(destinct: true)
+    @result = params[:q]&.values&.reject(&:blank?)
+  end 
 
   private
 
     def after_sign_in_path_for(resource_or_scope)
       if resource_or_scope.is_a?(Admin)
-        admin_path
+        admin_users_path
+      elsif resource_or_scope.is_a?(GymManager)
+        gym_manager_reservations_path
       else
         root_path
       end 

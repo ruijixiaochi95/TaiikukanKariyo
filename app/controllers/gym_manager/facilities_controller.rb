@@ -1,5 +1,5 @@
 class GymManager::FacilitiesController < ApplicationController
-
+  before_action :authenticate_gym_manager!
   def create
     @gym = Gym.find(params[:gym_id])
     @facility = Facility.new(facility_params)

@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!
   # ユーザーマイページ
   def show
     @user = current_user

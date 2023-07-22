@@ -32,13 +32,13 @@
     <% end %>
   </table>
 </div>
-  
+
 <% if admin_signed_in? %>
   <%= link_to "会員編集", edit_admin_user_path, class: 'btn btn-base' %>
 <% elsif user_signed_in? %>
   <%= link_to "マイページ編集", users_infomation_edit_path, class: 'btn btn-base' %>
 <% end %>
-  
+
 <h4 class="py-3">予約一覧</h4>
 <div class="row justify-content-center">
   <table class="table table-bordered col-7">
@@ -55,11 +55,19 @@
         </td>
         <td>
           <% if admin_signed_in? %>
-            <%= link_to '詳細', admin_reservation_path(user_reservation.id) %>
-            <%= link_to '削除', admin_reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+            <%= link_to admin_reservation_path(user_reservation.id) do %>
+              <i class="fas fa-info"></i>
+            <% end %>&emsp;
+            <%= link_to '削除', admin_reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } do %>
+               <i class="fas fa-trash-alt"></i>
+            <% end %>
           <% elsif user_signed_in? %>
-            <%= link_to '詳細', gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation) %>
-            <%= link_to '削除', gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+            <%= link_to  gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation) do %>
+              <i class="fas fa-info"></i>
+            <% end %>&emsp;
+            <%= link_to gym_facility_reservation_path(user_reservation.facility.gym, user_reservation.facility, user_reservation), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
           <% end %>
         </td>
       </tr>

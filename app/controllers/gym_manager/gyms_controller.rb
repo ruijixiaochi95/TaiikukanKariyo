@@ -1,4 +1,5 @@
 class GymManager::GymsController < ApplicationController
+  before_action :authenticate_gym_manager!
   def new
     @gym = Gym.new
   end

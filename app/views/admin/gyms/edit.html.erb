@@ -1,39 +1,39 @@
 <div class="container py-5 mx-auto col-4">
   <h4 class="text-center mb-3">体育館編集</h4>
     <%= form_with model: [:admin, @gym] do |f| %>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">体育館画像</label>
-      <div class="col-9">
-        <%= f.file_field :image, class: "btn" %>
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">体育館画像</label>
+      <div class="col-sm-6">
+        <%= f.file_field :image, class: 'py-2' %>
       </div>
     </div>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">体育館名</label>
-      <div class="col-9">
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">体育館名　</label>
+      <div class="col-sm-6">
         <%= f.text_field :name, placeholder: "体育館名" %>
       </div>
     </div>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">郵便番号</label>
-      <div class="col-9">
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">郵便番号　</label>
+      <div class="col-sm-6">
         <%= f.text_field :postal_code, placeholder: "郵便番号" %>
       </div>
     </div>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">住所</label>
-      <div class="col-9">
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">住所　　　</label>
+      <div class="col-sm-6">
         <%= f.text_field :address, placeholder: "住所" %>
       </div>
     </div>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">電話番号</label>
-      <div class="col-9">
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">電話番号　</label>
+      <div class="col-sm-6">
         <%= f.text_field :phone_number, placeholder: "電話番号" %>
       </div>
     </div>
-    <div class="form-group row justify-content-center offset-3">
-      <label class="col-3">説明</label>
-      <div class="col-9">
+    <div class="form-group row justify-content-center">
+      <label class="col-sm-6 col-form-label text-right">説明　　　</label>
+      <div class="col-sm-6">
         <%= f.text_area :caption, placeholder: "ここに説明文を記述します" %>
       </div>
     </div>

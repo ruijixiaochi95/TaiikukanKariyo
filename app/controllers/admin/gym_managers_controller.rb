@@ -1,4 +1,5 @@
 class Admin::GymManagersController < ApplicationController
+  before_action :authenticate_admin!
    # 体育館管理者一覧
   def index
     @gym_managers = GymManager.all

@@ -1,6 +1,7 @@
 class Public::ReservationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_gym_and_facility, only: [:new, :create, :index, :show]
-
+  # 予約新規登録画面
   def new
     @reservation = @facility.reservations.new
     @day = params[:day]
@@ -11,15 +12,15 @@ class Public::ReservationsController < ApplicationController
       redirect_to gym_facility_reservations_path(@gym, @facility), flash: { alert: message }
     end
   end
-
+  # 予約一覧
   def index
     @reservations = @facility.reservations.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
-
+  # 予約詳細
   def show
     @reservation = Reservation.find(params[:id])
   end
-
+  # 予約新規作成
   def create
     @reservation = @facility.reservations.new(reservation_params)
     @reservation.facility_id = @facility.id
@@ -30,7 +31,7 @@ class Public::ReservationsController < ApplicationController
       render 'new'
     end
   end
-
+  # 予約削除
   def destroy
     @reservation = Reservation.find(params[:id])
     if @reservation.destroy

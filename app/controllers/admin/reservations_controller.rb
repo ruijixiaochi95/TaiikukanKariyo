@@ -1,12 +1,14 @@
 class Admin::ReservationsController < ApplicationController
+  before_action :authenticate_admin!
+  # 予約一覧
   def index
     @reservations = Reservation.all
   end
-
+  # 予約詳細
   def show
     @reservation = Reservation.find(params[:id])
   end
-  
+  # 予約削除
   def destroy
     @reservation = Reservation.find(params[:id])
     @user = @reservation.user
