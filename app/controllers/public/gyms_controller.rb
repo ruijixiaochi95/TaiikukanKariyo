@@ -13,5 +13,5 @@ class Public::GymsController < ApplicationController
       format.html
       format.js
     end
-  end 
+  end
 end

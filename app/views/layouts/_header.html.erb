@@ -1,7 +1,32 @@
 <header>
-  <div class="container text-center py-2">
-    <a class="" href="/">
-      <span class><%= image_tag 'logo.png', :size => '100x100' %></span>
-    </a>
+  <div class="container py-2">
+    <div class="row">
+      <div class="col-8">
+        <a href="/" style="text-decoration: none;">
+          <span class>
+            <%= image_tag 'logo3.png', :size => '75x75' %>
+            <span style="font-size: 30px; color: black;"><strong>TaiikukanKariyo!</strong></span>
+          </span>
+        </a>
+      </div>
+      <div class="col-4 py-3">
+        <% if user_signed_in? %>
+          <%= search_form_for q, url: search_path, class: "form-inline" do |f| %>
+            <%= f.search_field :name_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
+            <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
+          <% end %>
+        <% elsif gym_manager_signed_in? %>
+          <%= search_form_for q, url: gym_manager_search_path, class: "form-inline" do |f| %>
+            <%= f.search_field :name_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
+            <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
+          <% end %>
+        <% else %>
+          <%= search_form_for q, url: admin_search_path, class: "form-inline" do |f| %>
+            <%= f.search_field :name_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
+            <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </header>

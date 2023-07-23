@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'facilities/index'
-  end
    # 管理者
   devise_for :admin,skip: [:registrations, :passwords] , controllers: {
     sessions: 'admin/sessions'
@@ -27,7 +24,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :gym_managers, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :gyms, only: [:index, :show, :edit, :destroy, :update] 
+    resources :gyms, only: [:index, :show, :edit, :destroy, :update]
     resources :facilities, only: [:show, :index, :destroy]
     resources :reservations
   end
@@ -40,16 +37,16 @@ Rails.application.routes.draw do
     resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resources :facilities, only: [:destroy, :create, :edit, :update] do
         resources :reservations
-      end 
-    end 
+      end
+    end
     resources :reservations
   end
   # ユーザー
   namespace :public do
-    get "search" => "searches#search"
     get 'homes/top'
   end
   scope module: :public do
+    get "search" => "searches#search"
     get 'users/my_page' => 'users#show'
     get 'users/infomation/edit' => 'users#edit'
     patch '/users/infomation' => 'users#update'
@@ -57,9 +54,12 @@ Rails.application.routes.draw do
     patch 'users/withdrawal' => 'users#withdrawal'
     resources :users, only: [:show, :edit, :update]
     resources :gyms, only: [:index, :show] do
+      collection do
+        get 'search'
+      end 
       resources :facilities, only: [:show, :index] do
         resources :reservations
-      end 
+      end
     end
     # resources :reservations
   end

@@ -12,8 +12,7 @@
 
   <body>
     <div class="content">
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/search' %>
+    <%= render 'layouts/header', q: @q %>
     <%= render 'layouts/nav' %>
     <main>
       <%= yield %>
