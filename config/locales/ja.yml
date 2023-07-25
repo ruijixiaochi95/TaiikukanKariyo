@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      gym: "体育館"
+      gym_manager: "体育館管理者"
+    attributes:
+      gym:
+        name: "体育館名"
+        caption: "説明"
+        address: "住所"
+        phone_number: "電話番号"
+        postal_code: "郵便番号"
+      user:
+        first_name: "名前（名）"
+        last_name: "名前（姓）"
+        first_name_kana: "フリガナ（メイ）"
+        last_name_kana: "フリガナ（セイ）"
+        email: "メールアドレス"
+        password: "パスワード"
+        phone_number: "電話番号"
+      gym_manager:
+        first_name: "名前（名）"
+        last_name: "名前（姓）"
+        first_name_kana: "フリガナ（メイ）"
+        last_name_kana: "フリガナ（セイ）"
+        email: "メールアドレス"
+        password: "パスワード"

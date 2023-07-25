@@ -1,4 +1,5 @@
 <div class="container py-5 mx-auto col-4">
+  <%= render 'layouts/errors', obj: @gym %>
   <h4 class="text-center mb-3">体育館編集</h4>
     <%= form_with model: [:admin, @gym] do |f| %>
     <div class="form-group row justify-content-center">

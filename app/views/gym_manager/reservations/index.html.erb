@@ -1,7 +1,7 @@
-<div class="container col-md-8 text-center">
+<div class="container text-center">
   <h4 class="mb-3">予約一覧</h4>
   <div class="row justify-content-center">
-    <table class="table">
+    <table class="table col-md-10">
       <thead>
         <tr>
           <th>予約日時</th>
@@ -13,21 +13,20 @@
       </thead>
       <tbody>
         <% @reservations.each do |reservation| %>
-        <tr>
-          <td>
-            <%= reservation.day %>&emsp;<%= reservation.time %>
-          </td>
-          <td><%= reservation.user.last_name %>&emsp;<%= reservation.user.first_name %></td>
-          <td><%= reservation.user.phone_number %></td>
-          <td><%= reservation.user.email %></td>
-          <td>
-            <%= link_to gym_manager_gym_path(reservation.facility.gym.id) do %>
-              <%= reservation.facility.gym.name %>&ensp;:&ensp;<%= reservation.facility.name %>
-            <% end %>
-          </td>
-        </tr>
+          <tr>
+            <td><%= reservation.day %>&emsp;<%= reservation.time %></td>
+            <td><%= reservation.user.last_name %>&emsp;<%= reservation.user.first_name %></td>
+            <td><%= reservation.user.phone_number %></td>
+            <td><%= reservation.user.email %></td>
+            <td>
+              <%= link_to gym_manager_gym_path(reservation.facility.gym.id) do %>
+                <%= reservation.facility.gym.name %>&ensp;:&ensp;<%= reservation.facility.name %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+

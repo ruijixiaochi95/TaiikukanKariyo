@@ -11,7 +11,11 @@
       <%= gym.caption %>
       <% if user_signed_in? %>
         <div class="form-group mt-3">
-          <%= link_to '予約する', gym_facilities_path(gym), class: 'btn btn-base' %>
+          <% if gym.is_open == false %>
+            <%= link_to '予約する', gym_facilities_path(gym), class: 'btn btn-base' %>
+          <% else %>
+            <p>※現在予約を受けることが出来ません</p>
+          <% end %>
         </div>
       <% elsif gym_manager_signed_in? %>
       <% elsif admin_signed_in? %>
@@ -52,7 +56,7 @@
 <div class="row justify-content-center mt-3">
   <div class="col-6 offset-6">
     <p style="font-size: 18px;">設備登録</p>
-    <table class="table table-borderless">
+    <table class="table table-border">
     <% if gym.facilities.any? %>
       <% gym.facilities.each do |facility| %>
         <tr>
@@ -60,6 +64,13 @@
           <td style="width: 5%;">
             <%= link_to gym_manager_gym_facility_path(facility.gym, facility), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
               <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </td>
+          <td style="width: 5%">
+            <% if facility.is_open == false %>
+              <%= link_to "予約不可にする", gym_manager_gym_facility_path(facility.gym, facility, facility: { is_open: true }), method: :patch, class: "btn btn-danger btn-sm", data: { confirm: "本当に予約不可にしますか？" } %>
+            <% else %>
+              <%= link_to "予約可にする", gym_manager_gym_facility_path(facility.gym, facility, facility: { is_open: false }), method: :patch, class: "btn btn-primary btn-sm", data: { confirm: "本当に予約可能にしますか？" } %>
             <% end %>
           </td>
         </tr>

@@ -44,4 +44,11 @@ class Reservation < ApplicationRecord
       return "3ヶ月以降の日付は選択できません。正しい日付を選択してください。"
     end
   end
+  
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "day", "facility_id", "id", "start_time", "time", "updated_at", "user_id"]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    ["facility", "user"]
+  end
 end

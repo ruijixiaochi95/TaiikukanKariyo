@@ -1,7 +1,8 @@
-<div class="container py-5 col-md-5">
+<div class="container py-2 col-md-5">
+  <%= render "layouts/errors", obj: resource %>
   <h4 class="text-center">新規会員登録</h4>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+
   <div class="row justify-content-center">
     <div class="d-flex flex-column">
       <label>(姓)</label>
@@ -53,7 +54,7 @@
   </div>
 
   <div class="row justify-content-center">
-    <%= f.submit "新規登録", class: 'btn btn-base mt-3' %>
+    <%= f.submit "新規登録", class: 'btn btn-base my-3' %>
   </div>
   <% end %>
 </div>

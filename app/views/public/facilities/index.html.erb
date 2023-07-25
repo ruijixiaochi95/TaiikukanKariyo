@@ -10,9 +10,13 @@
         <% @facilities.each do |facility| %>
         <tr>
           <td>
-            <%= link_to gym_facility_reservations_path(@gym, facility) do %>
-            <%= facility.name %>
-            <% end %>
+            <% if facility.is_open == false %>
+              <%= link_to gym_facility_reservations_path(@gym, facility) do %>
+                <%= facility.name %>
+              <% end %>
+            <% elsif facility.is_open == true %>
+              <%= facility.name %><span>　　※現在予約することが出来ません</span>
+          <% end %>
           </td>
         </tr>
         <% end %>

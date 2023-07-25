@@ -21,7 +21,7 @@ class GymManager::GymsController < ApplicationController
     @gym = Gym.new(gym_params)
     @gym.gym_manager_id = current_gym_manager.id
     if @gym.save
-      redirect_to gym_manager_gym_path(@gym.id)  
+      redirect_to gym_manager_gym_path(@gym.id), notice: "体育館情報を登録しました。" 
     else
       render 'new'
     end 
@@ -30,7 +30,7 @@ class GymManager::GymsController < ApplicationController
   def update
     @gym = Gym.find(params[:id])
     if @gym.update(gym_params)
-      redirect_to gym_manager_gym_path(@gym.id)  
+      redirect_to gym_manager_gym_path(@gym.id), notice: "体育館情報を変更しました。"
     else
       render "edit"
     end 
@@ -43,6 +43,7 @@ class GymManager::GymsController < ApplicationController
   end 
 
   private
+  
   def gym_params
     params.require(:gym).permit(:name, :postal_code, :address, :phone_number, :caption, :is_open, :image, :latitude, :longitude)
   end

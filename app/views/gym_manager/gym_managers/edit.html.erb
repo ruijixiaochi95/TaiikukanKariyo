@@ -1,4 +1,5 @@
 <div class="container py-5 col-md-5">
+  <%= render "layouts/errors", obj: @gym_manager %>
   <h4 class="text-center">会員情報編集</h4>
   <%= form_with model: @gym_manager, url: gym_manager_infomation_path, method: :patch do |f| %>
   <div class="row justify-content-center">

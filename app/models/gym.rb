@@ -6,6 +6,12 @@ class Gym < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :postal_code, presence: true
+  validates :caption, presence: true
+  validates :phone_number, presence: true
 
   def get_image(width, height)
     unless image.attached?
@@ -17,5 +23,8 @@ class Gym < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     ["address", "caption", "created_at", "gym_manager_id", "id", "is_open", "latitude", "longitude", "name", "phone_number", "postal_code", "updated_at"]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    ["facilities", "gym_manager", "image_attachment", "image_blob"]
   end
 end

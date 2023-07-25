@@ -21,8 +21,10 @@
           <% end %>
         </td>
         <td>
-          <% if gym.is_open ==false %>
+          <% if gym.is_open == false %>
             <p class="text-success"><strong>予約可</strong></p>
+          <% elsif gym.is_open == true %>
+            <p class="text-secondary"><strong>予約不可</strong></p>
           <% end %>
         </td>
       </tr>

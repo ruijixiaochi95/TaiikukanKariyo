@@ -1,19 +1,29 @@
-<div style="text-align: center;" class="pt−2 pb-5">
-  <h1><span class="display">TaiikukanKariyo!</span></h1>
-  <p>
-    こちらのサイトでは誰でも気軽に体育館を借りることが出来ます。<br>
-    予約をするには、会員登録が必要となります。<br>
-    ぜひご利用ください。
-  </p>
-  <div>
-    <%= image_tag 'gym.jpg', :size => '900x400' %>
+<div class="container py-3 pb-5 text-center">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <h3><span style="font-family: 'RocknRoll One', sans-serif;"><strong>TaiikukanKariyo!</strong></span></h3>
+      <p>
+        こちらのサイトでは誰でも気軽に体育館を借りることが出来ます。<br>
+        予約をするには、会員登録が必要となります。<br>
+        ぜひご利用ください。
+      </p>
+      <div>
+        <%= image_tag 'gym.jpg', :size => '900x400', class: "img-fluid" %>
+      </div>
+    </div>
   </div>
 </div>
 
-<div style="text-align: center;" class="pt−2 pb-5">
-    <p>体育館管理者の方は
-      <%= link_to "こちら", new_gym_manager_registration_path %>
-    </p>
+<div class="container pt-2 pb-5 text-center">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <p>
+        体育館管理者の方は
+        <%= link_to "こちら", new_gym_manager_registration_path %>
+      </p>
+    </div>
+  </div>
 </div>
+
   
 
