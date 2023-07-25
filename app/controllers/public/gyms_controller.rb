@@ -8,6 +8,7 @@ class Public::GymsController < ApplicationController
     @gym = Gym.find(params[:id])
     @facilities = @gym.facilities
     @facility = Facility.find(params[:facility_id]) if params[:facility_id].present?
+    @gym_comment = GymComment.new
   
     respond_to do |format|
       format.html

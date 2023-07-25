@@ -1,0 +1,3 @@
+$("#gym_<%= @gym.id %> .comments-count").html("コメント数: <%= @gym.gym_comments.count %>");
+$(".gym_comments").html("<%= j(render 'public/gym_comments/index', gym: @gym) %>");
+$("#gym_comment_comment").val("");

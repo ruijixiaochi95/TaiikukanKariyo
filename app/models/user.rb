@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations, dependent: :destroy
+  has_many :gym_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   # 退会してなければtrueを返す
   def active_for_authetication?

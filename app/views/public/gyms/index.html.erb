@@ -12,7 +12,8 @@
         <%= gym.address %><br>
         <%= link_to gym_path(gym.id) do %>
           <i class="fas fa-info-circle"></i>詳細
-        <% end %>
+        <% end %><br>
+        コメント数:<%= gym.gym_comments.count %>
       </div>
     </div>
   <% end %>

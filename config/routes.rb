@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       collection do
         get 'search'
       end 
+      resources :gym_comments, only: [:create, :destroy]
       resources :facilities, only: [:show, :index] do
         resources :reservations
       end

@@ -1,0 +1,18 @@
+<table>
+  <% gym.gym_comments.each do |gym_comment| %>
+    <% gym_comment_user = gym_comment.user %>
+    <tr>
+      <td>
+        <%= gym_comment_user.last_name %><%= gym_comment_user.first_name %>
+      </td>
+      <td>
+        <%= gym_comment.comment %>
+      </td>
+      <% if current_user == gym_comment_user %>
+        <td>
+          <%= link_to '削除', gym_gym_comment_path(gym_comment.gym_id, gym_comment.id), class: 'btn btn-sm btn-danger', method: :delete, remote: true %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
