@@ -9,6 +9,12 @@
         <!--ユーザーがログインしている場合-->
         <% if user_signed_in? %>
           <li>
+            <%= link_to root_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-home"></i>
+              <span>ホーム</span>
+            <% end %>
+          </li>
+          <li>
             <%= link_to users_my_page_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-user"></i>
               <span>マイページ</span>
@@ -86,6 +92,12 @@
           </li>
         <!--どれも当てはまらない場合-->
         <% else %>
+          <li>
+            <%= link_to root_path, class: 'nav-link text-warning' do %>
+              <i class="fas fa-home"></i>
+              <span>ホーム</span>
+            <% end %>
+          </li>
           <li>
             <%= link_to gyms_path, class: 'nav-link text-warning' do %>
               <i class="fas fa-indent"></i>

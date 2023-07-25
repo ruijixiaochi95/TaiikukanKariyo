@@ -39,7 +39,7 @@ class GymManager::GymsController < ApplicationController
   def destroy
     @gym = Gym.find(params[:id])
     @gym.destroy
-    redirect_to gym_manager_gyms_path
+    redirect_to gym_manager_gyms_path, alert: "体育館を削除しました。"
   end 
 
   private

@@ -16,7 +16,7 @@ class Admin::GymsController < ApplicationController
   def update
     @gym = Gym.find(params[:id])
     if @gym.update(gym_params)
-      redirect_to admin_gym_path(@gym.id)  
+      redirect_to admin_gym_path(@gym.id), notice: "体育館情報を変更しました。"
     else
       render "edit"
     end 
@@ -25,7 +25,7 @@ class Admin::GymsController < ApplicationController
   def destroy
     @gym = Gym.find(params[:id])
     @gym.destroy
-    redirect_to admin_gyms_path
+    redirect_to admin_gyms_path, alert: "体育館を削除しました。"
   end 
   
   private
