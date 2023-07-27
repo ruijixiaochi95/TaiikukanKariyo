@@ -1,7 +1,7 @@
 class Public::GymsController < ApplicationController
   # 体育館一覧
   def index
-    @gyms = Gym.all
+    @gyms = Gym.page(params[:page]).per(5) 
   end
   # 体育館一覧
   def show

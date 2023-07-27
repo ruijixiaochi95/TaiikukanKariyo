@@ -2,8 +2,5 @@
   <h4 class="text-center">体育館一覧</h4>
   <%= link_to "新規登録", new_gym_manager_gym_path, class:"btn btn-base mb-1" %>
   <%= render "gyms", gyms: @gyms %>
-  <div class="pagination justify-content-center">
-    <%= paginate @gyms %>
-  </div>
 </div>
 
