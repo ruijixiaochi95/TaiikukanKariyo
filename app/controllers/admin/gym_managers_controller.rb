@@ -21,6 +21,12 @@ class Admin::GymManagersController < ApplicationController
       render 'edit'
     end
   end
+  #体育館管理者の削除
+  def destroy
+    @gym_manager = GymManager.find(params[:id])
+    @gym_manager.destroy
+    redirect_to admin_gym_managers_path, notice: "体育館管理者を削除しました。"
+  end
   
   private
   def gym_manager_params

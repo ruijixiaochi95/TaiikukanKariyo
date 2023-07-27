@@ -15,23 +15,27 @@
         <% end %><br>
         コメント数:<%= gym.gym_comments.count %>
         <div id="average_rating_<%= gym.id %>"></div>
+        <div class="average-review-rating" data-score="<%= gym.gym_comments.average(:rate) || 0 %>"></div>
+
         <script>
           $(document).on('turbolinks:load', function() {
-            let elem = document.querySelector('#average_rating_<%= gym_gym_comment.id %>');
-            if (elem == null) return;
+            let averageRatingElem = document.querySelector('#average_rating_<%= gym.id %>');
+            let averageRating = <%= gym.gym_comments.average(:rate) || 0 %>;
 
-            elem.innerHTML = "";
+            averageRatingElem.innerHTML = "";
             let opt = {
               starOn: "<%= asset_path('star-on.png') %>",
               starOff: "<%= asset_path('star-off.png') %>",
               starHalf: "<%= asset_path('star-half.png') %>",
-              score: <%= @average_ratings[gym_gym_comment.id].to_f.round(2) if @average_ratings[gym_gym_.id].present? %>,
+              score: averageRating,
               readOnly: true,
             };
-            raty(elem, opt);
+            raty(averageRatingElem, opt);
           });
         </script>
       </div>
     </div>
   <% end %>
 </div>
+
+

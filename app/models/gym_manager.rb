@@ -10,5 +10,5 @@ class GymManager < ApplicationRecord
   validates :last_name_kana, presence: true
          
   has_many :gyms, dependent: :destroy
-  has_many :reservations, dependent: :destroy
+  # has_many :reservations, dependent: :destroy
 end

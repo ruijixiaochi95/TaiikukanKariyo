@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # 管理者
   namespace :admin do
     get "search" => "searches#search"
-    resources :gym_managers, only: [:index, :show, :edit, :update]
+    resources :gym_managers, only: [:index, :show, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     resources :gyms, only: [:index, :show, :edit, :destroy, :update] do
       resources :gym_comments, only: [:destroy]
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get 'my_page' => 'gym_managers#show'
     get 'infomation/edit' => 'gym_managers#edit'
     patch '/infomation' => 'gym_managers#update'
-    resources :gyms, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resources :gyms, only: [:new, :create, :index, :show, :edit, :update] do
       resources :facilities, only: [:destroy, :create, :edit, :update] do
         resources :reservations
       end

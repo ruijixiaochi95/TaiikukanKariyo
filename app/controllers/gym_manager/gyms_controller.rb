@@ -21,7 +21,7 @@ class GymManager::GymsController < ApplicationController
     @gym = Gym.new(gym_params)
     @gym.gym_manager_id = current_gym_manager.id
     if @gym.save
-      redirect_to gym_manager_gym_path(@gym.id), notice: "体育館情報を登録しました。" 
+      redirect_to gym_manager_gym_path(@gym.id), notice: "体育館情報を登録しました。予約を受けるには、設備登録をしてください" 
     else
       render 'new'
     end 

@@ -40,6 +40,10 @@
           <td>
             <%= link_to '削除', gym_gym_comment_path(gym_comment.gym_id, gym_comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger mb-2' %>
           </td>
+        <% elsif admin_signed_in? %>
+          <td>
+            <%= link_to '削除', admin_gym_gym_comment_path(gym_comment.gym_id, gym_comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger mb-2' %>
+          </td>
         <% end %>
       </tr>
     <% end %>
