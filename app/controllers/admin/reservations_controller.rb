@@ -2,7 +2,7 @@ class Admin::ReservationsController < ApplicationController
   before_action :authenticate_admin!
   # 予約一覧
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.page(params[:page]).per(10) 
   end
   # 予約詳細
   def show

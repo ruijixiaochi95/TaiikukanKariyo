@@ -2,10 +2,13 @@ class GymManager::ReservationsController < ApplicationController
   before_action :authenticate_gym_manager!
   def index
     @reservations = Reservation.joins(:facility).where(facilities: { gym_id: current_gym_manager.gyms.pluck(:id) })
-    # @q_reservation = Reservation.joins(facility: :gym).where(facilities: { gym_id: current_gym_manager.gyms.pluck(:id) }).ransack(params[:q_reservation])
-    # @reservations = @q_reservation.result(distinct: true)
+    @reservations = @reservations.latest if params[:latest]
+    @reservations = @reservations.old if params[:old]
+    @reservations = @reservations.earliest_reservations if params[:earliest_reservations]
+    @reservations = @reservations.latest_reservations if params[:latest_reservations]
+    @reservations = @reservations.page(params[:page]).per(10) 
   end
-  
+
   def show
     @reservation = Reservation.find(params[:id])
   end

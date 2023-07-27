@@ -2,7 +2,7 @@ class Admin::GymsController < ApplicationController
   before_action :authenticate_admin!
   # 体育館一覧
   def index
-    @gyms = Gym.all
+    @gyms = Gym..page(params[:page]).per(5) 
   end
   # 体育館詳細
   def show

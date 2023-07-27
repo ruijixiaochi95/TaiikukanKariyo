@@ -1,5 +1,10 @@
 <div class="container text-center">
   <h4 class="mb-3">予約一覧</h4>
+  <%= link_to '新しい順', gym_manager_reservations_path(latest: "true") %>
+  |<%= link_to '古い順', gym_manager_reservations_path(old: "true") %>
+  |<%= link_to '日(早い順)', gym_manager_reservations_path(earliest_reservations: "true") %>
+  |<%= link_to '日(遅い順)', gym_manager_reservations_path(latest_reservations: "true") %>
+
   <div class="row justify-content-center">
     <table class="table col-md-10">
       <thead>
@@ -27,6 +32,9 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="pagination justify-content-center">
+    <%= paginate @reservations %>
   </div>
 </div>
 
