@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   private
   # 体育館検索
   def search
-    @search_word = params[:q_gym][:name_or_address_cont] if params[:q_gym]
-    @q_gym = Gym.ransack(params[:q_gym])
+    @search_word = params[:q][:name_or_address_cont] if params[:q]
+    @q_gym = Gym.ransack(params[:q])
     @gyms = @q_gym.result(distinct: true)
     @result = params[:q]&.values&.reject(&:blank?)
   end

@@ -24,7 +24,7 @@ class Gym < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    ["address", "caption", "created_at", "gym_manager_id", "id", "is_open", "latitude", "longitude", "name", "phone_number", "postal_code", "updated_at"]
+    ["address", "caption", "created_at", "gym_manager_id", "id", "is_open", "latitude", "longitude", "name", "phone_number", "postal_code", "updated_at", "usage_fee"]
   end
   def self.ransackable_associations(auth_object = nil)
     ["facilities", "gym_manager", "image_attachment", "image_blob"]
