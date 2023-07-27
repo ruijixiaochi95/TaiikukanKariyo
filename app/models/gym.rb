@@ -13,6 +13,7 @@ class Gym < ApplicationRecord
   validates :postal_code, presence: true
   validates :caption, presence: true
   validates :phone_number, presence: true
+  validates :usage_fee, numericality: { greater_than_or_equal_to: 0 }, allow_blank: true
 
   def get_image(width, height)
     unless image.attached?

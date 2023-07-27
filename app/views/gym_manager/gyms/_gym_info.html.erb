@@ -6,9 +6,10 @@
     <h5 class="py-2"><strong>&ensp;<%= gym.name %></strong></h5>
     <div class="ml-2">
       〒&ensp;<%= gym.postal_code %><br>
-      <i class="fas fa-map-marker-alt"></i>&ensp;<%= gym.address %><br>
-      <i class="fas fa-phone"></i>&ensp;<%= gym.phone_number %><br>
-      <%= gym.caption %>
+      <span><i class="fas fa-map-marker-alt"></i>&ensp;<%= gym.address %></span><br>
+      <span><i class="fas fa-phone"></i>&ensp;<%= gym.phone_number %></span><br>
+      <span>￥&ensp;<%= gym.usage_fee %>円(1時間あたり)</span><br>
+      <span><%= gym.caption %></span>
       <% if user_signed_in? %>
         <div class="form-group mt-3">
           <% if gym.is_open == false %>

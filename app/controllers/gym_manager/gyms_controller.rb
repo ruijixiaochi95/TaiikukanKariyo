@@ -45,6 +45,6 @@ class GymManager::GymsController < ApplicationController
   private
   
   def gym_params
-    params.require(:gym).permit(:name, :postal_code, :address, :phone_number, :caption, :is_open, :image, :latitude, :longitude)
+    params.require(:gym).permit(:name, :postal_code, :address, :phone_number, :caption, :is_open, :image, :latitude, :longitude, :usage_fee)
   end
 end
