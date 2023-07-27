@@ -24,7 +24,7 @@ class GymManager::FacilitiesController < ApplicationController
       redirect_to gym_manager_gym_path(@gym.id), notice: "施設の予約状況が変更されました。"
     else
       redirect_to gym_manager_gym_path(params[:gym_id]), alert: "施設の予約状況の変更に失敗しました。"
-  end
+    end
   end 
 
   private

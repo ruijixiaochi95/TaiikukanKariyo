@@ -1,12 +1,8 @@
 <div class="container pb-5">
-  <%= render 'show', gym: @gym, facility: @facility %>
-  <div class="row justify-content-center">
-    <div class="col-6 offset-6">
-      <%= form_with model: [:gym_manager, @gym, @facility] do |f| %>
-        <%= f.text_field :name %>
-        <%= f.submit "設備登録" %>
-      <% end %>
-    </div>
+  <%= render 'gym_info', gym: @gym, facility: @facility %>
+  <div class="row">
+    <%= render 'public/gym_comments/index', gym: @gym, gym_comment: @gym_comment %>
+    <%= render 'gym_manager/gyms/gym_setting', gym: @gym, facility: @facility%>
   </div>
 </div>
 <%= render 'gym_manager/gyms/map', gym: @gym %>

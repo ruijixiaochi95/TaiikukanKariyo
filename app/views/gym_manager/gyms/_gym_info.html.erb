@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <%= image_tag gym.get_image(450,300), class: 'rounded my-2' %>
+  </div>
+  <div class="col-md-4 mt-5">
+    <h5 class="py-2"><strong>&ensp;<%= gym.name %></strong></h5>
+    <div class="ml-2">
+      〒&ensp;<%= gym.postal_code %><br>
+      <i class="fas fa-map-marker-alt"></i>&ensp;<%= gym.address %><br>
+      <i class="fas fa-phone"></i>&ensp;<%= gym.phone_number %><br>
+      <%= gym.caption %>
+      <% if user_signed_in? %>
+        <div class="form-group mt-3">
+          <% if gym.is_open == false %>
+            <%= link_to '予約する', gym_facilities_path(gym), class: 'btn btn-base' %>
+          <% else %>
+            <p>※現在予約を受けることが出来ません</p>
+          <% end %>
+        </div>
+      <% elsif gym_manager_signed_in? %>
+      <% elsif admin_signed_in? %>
+      <% else %>
+        <p class="pt-4">※予約をするには、<%= link_to "こちら", new_user_registration_path %>から会員登録をしてください。</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 d-flex align-items-center">
+    <div class="map pt-5">
+      <div id="map" style="width: 200px; height: 200px;"></div>
+    </div>
+  </div>
+</div>

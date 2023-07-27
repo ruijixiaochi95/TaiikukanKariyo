@@ -24,7 +24,9 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :gym_managers, only: [:index, :show, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :gyms, only: [:index, :show, :edit, :destroy, :update]
+    resources :gyms, only: [:index, :show, :edit, :destroy, :update] do
+      resources :gym_comments, only: [:destroy]
+    end 
     resources :facilities, only: [:show, :index, :destroy]
     resources :reservations
   end

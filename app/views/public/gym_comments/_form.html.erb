@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <p>コメントする</p>
+  <%= form_with model: [gym, gym_comment], local: true do |f| %>
+    <%= f.hidden_field :rate, id: :review_star, class: "form-control" %>
+    <div id="post_raty"></div>
+    <script>
+     $(document).on('turbolinks:load', function() {
+       let elem = document.querySelector('#post_raty');
+       if (elem == null) return;
+
+        elem.innerHTML = "";
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'gym_comment[rate]',
+        };
+      raty(elem, opt);
+      });
+    </script>
+    <%= f.text_area :comment, rows: '3', class: 'form-control mt-2' %>
+    <%= f.submit "送信", class: 'btn btn-base btn-sm my-2' %>
+  <% end %>
+  <% if current_user.nil? %>
+    <span>※コメントをするには会員登録が必要です</span>
+  <% end %>
+</div>

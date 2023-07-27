@@ -1,0 +1,58 @@
+<div class="col-6">
+  <p style="font-size: 20px;"><i class="fas fa-users-cog"></i>管理者の方はこちら</p>
+  <span>こちらのボタンから体育館の編集が出来ます。</span><br>
+  <% if admin_signed_in? %>
+    <%= link_to edit_admin_gym_path do %>
+      <i class="fas fa-edit"></i>編集する
+    <% end %>
+    <%= link_to admin_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+      <i class="fas fa-trash-alt"></i>削除する
+    <% end %>
+  <% elsif gym_manager_signed_in? %>
+    <%= link_to edit_gym_manager_gym_path do %>
+      <i class="fas fa-edit"></i>編集する
+    <% end %>&emsp;
+    <%= link_to gym_manager_gym_path(gym.id), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+      <i class="fas fa-trash-alt"></i>削除する
+    <% end %>
+  <% end %>
+
+  <p style="font-size: 18px; margin-top: 20px;">設備登録</p>
+  <table class="table table-border">
+    <% if gym.facilities.any? %>
+      <% gym.facilities.each do |facility| %>
+        <tr>
+          <td style="width: 5%;"><%= facility.name %></td>
+          <% if gym_manager_signed_in? %>
+            <td style="width: 5%;">
+              <%= link_to gym_manager_gym_facility_path(facility.gym, facility), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </td>
+            <td style="width: 5%">
+              <% if facility.is_open == false %>
+                <%= link_to "予約不可にする", gym_manager_gym_facility_path(facility.gym, facility, facility: { is_open: true }), method: :patch, class: "btn btn-danger btn-sm", data: { confirm: "本当に予約不可にしますか？" } %>
+              <% else %>
+                <%= link_to "予約可にする", gym_manager_gym_facility_path(facility.gym, facility, facility: { is_open: false }), method: :patch, class: "btn btn-primary btn-sm", data: { confirm: "本当に予約可能にしますか？" } %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td>設備登録を行わないと予約を受けることが出来ません。<br>フォームから登録してください。</td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% if gym_manager_signed_in? %>
+    <%= form_with model: [:gym_manager, gym, Facility.new] do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit "設備登録" %>
+    <% end %>
+  <% end %>
+</div>
+
+
+

@@ -1,17 +1,8 @@
 <div class="container pb-5">
-  <%= render 'gym_manager/gyms/show', gym: @gym %>
-  <%= render 'gym_manager/gyms/map', gym: @gym %>
-  
+  <%= render 'gym_manager/gyms/gym_info', gym: @gym, gym_comment: @gym_comment %>
   <div class="row">
-    <div class="col-md-6">
-      <%= render 'public/gym_comments/index', gym: @gym %>
-      <%= form_with model: [@gym, @gym_comment], remote: true do |f| %>
-        <%= f.text_area :comment, size:"90x5" %>
-        <%= f.submit "送信" %>
-      <% end %>
-    </div>
-    <div class="col-md-6"></div>
+    <%= render 'public/gym_comments/index', gym: @gym, gym_comment: @gym_comment %>
+    <%= render 'public/gym_comments/form', gym: @gym, gym_comment: @gym_comment %>
   </div>
+  <%= render 'gym_manager/gyms/map', gym: @gym %>
 </div>
-
-

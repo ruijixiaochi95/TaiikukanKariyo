@@ -1,18 +1,50 @@
-<table>
-  <% gym.gym_comments.each do |gym_comment| %>
-    <% gym_comment_user = gym_comment.user %>
-    <tr>
-      <td>
-        <%= gym_comment_user.last_name %><%= gym_comment_user.first_name %>
-      </td>
-      <td>
-        <%= gym_comment.comment %>
-      </td>
-      <% if current_user == gym_comment_user %>
+<div class="col-md-6">
+  <p style="font-size: 18px; margin-top: 20px;"><strong>レビュー</strong></p>
+  <table class="mb-5" style="width: 100%;">
+    <% if gym.gym_comments.any? %>
+    <% gym.gym_comments.each do |gym_comment| %>
+      <% gym_comment_user = gym_comment.user %>
+      <tr>
+        <td><i class="fas fa-user text-secondary"></i>&ensp;<%= gym_comment_user.last_name %><%= gym_comment_user.first_name %></td>
+      </tr>
+      <tr>
         <td>
-          <%= link_to '削除', gym_gym_comment_path(gym_comment.gym_id, gym_comment.id), class: 'btn btn-sm btn-danger', method: :delete, remote: true %>
+          <div id="rate_<%= gym_comment.id %>"></div>
+          <script>
+            $(document).on('turbolinks:load', function() {
+              let elem = document.querySelector('#rate_<%= gym_comment.id %>');
+              if (elem == null) return;
+
+              elem.innerHTML = "";
+              let opt = {
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                score: "<%= gym_comment.rate %>",
+                readOnly: true,
+              };
+              raty(elem, opt);
+            });
+          </script>
         </td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+      </tr>
+      <tr>
+        <% if gym_comment.comment.blank? %>
+          <td>コメントはありません</td>
+        <% else %>
+          <td><%= gym_comment.comment %></td>
+        <% end %>
+      </tr>
+      <tr class="border-bottom">
+        <% if current_user == gym_comment_user %>
+          <td>
+            <%= link_to '削除', gym_gym_comment_path(gym_comment.gym_id, gym_comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-sm btn-danger mb-2' %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    <% else %>
+      <p>レビューはありません。</p>
+    <% end %>
+  </table>
+</div>

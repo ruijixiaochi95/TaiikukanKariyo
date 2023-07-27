@@ -1,3 +1,8 @@
-<div class="container py-5">
-  <%= render 'gym_manager/gyms/show', gym: @gym %>
+<div class="container pb-5">
+  <%= render 'gym_manager/gyms/gym_info', gym: @gym, facility: @facility %>
+  <div class="row">
+    <%= render 'public/gym_comments/index', gym: @gym, gym_comment: @gym_comment %>
+    <%= render 'gym_manager/gyms/gym_setting', gym: @gym, facility: @facility%>
+  </div>
 </div>
+<%= render 'gym_manager/gyms/map', gym: @gym %>

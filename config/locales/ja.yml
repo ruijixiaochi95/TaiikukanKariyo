@@ -25,3 +25,5 @@ ja:
         last_name_kana: "フリガナ（セイ）"
         email: "メールアドレス"
         password: "パスワード"
+      gym_comment:
+        comment: "コメント"
