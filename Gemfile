@@ -54,20 +54,23 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem 'devise'
 gem 'enum_help'
 gem 'kaminari','~> 1.2.1'
 gem "simple_calendar", "~> 2.0"
 gem 'gmaps4rails'
 gem 'geocoder'
-gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
-gem "net-smtp"
-gem "net-pop"
-gem "net-imap"
 gem "ransack"
 gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0'
 gem 'jquery-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
