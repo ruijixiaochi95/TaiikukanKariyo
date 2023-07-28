@@ -68,16 +68,26 @@ h5 {
   border-bottom: solid 1px #7db4e6;
 }
 
-.pagination>li>a {          
-  border: none;     
-  color: #696969;   
+.pagination>li>a {
+  border: none;
+  color: #696969;
 }
 
-.pagination>.active>a {     
-  background: #93c9ff;     
-  border-radius: 15px;     
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+.address-container {
+    text-align: center; 
+}
+
+@media (max-width: 767px) {
+    .address-container {
+        text-align: left; 
+    }
 }

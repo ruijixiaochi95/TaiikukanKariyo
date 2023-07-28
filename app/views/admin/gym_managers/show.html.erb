@@ -1,20 +1,22 @@
 <div class="container py-5 text-center">
   <h4 class="pb-3">マイページ</h4>
   <div class="row justify-content-center">
-    <table class="table table-bordered col-7 ">
-      <tr>
-        <td class="col-5">氏名</td>
-        <td class="col-7"><%= @gym_manager.last_name %>&emsp;<%= @gym_manager.first_name %></td>
-      </tr>
-      <tr>
-        <td class="col-5">カナ</td>
-        <td class="col-7"><%= @gym_manager.last_name_kana %>&emsp;<%= @gym_manager.first_name_kana %></td>
-      </tr>
-      <tr>
-        <td class="col-5">メールアドレス</td>
-        <td class="col-7"><%= @gym_manager.email %></td>
-      </tr>
-    </table>
+    <div class="col-md-7">
+      <table class="table table-bordered">
+        <tr>
+          <td class="font-weight-bold">氏名</td>
+          <td><%= @gym_manager.last_name %>&emsp;<%= @gym_manager.first_name %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">カナ</td>
+          <td><%= @gym_manager.last_name_kana %>&emsp;<%= @gym_manager.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold">メールアドレス</td>
+          <td><%= @gym_manager.email %></td>
+        </tr>
+      </table>
+    </div>
   </div>
   <%= link_to "マイページ編集", edit_admin_gym_manager_path, class: 'btn btn-base' %>
 </div>

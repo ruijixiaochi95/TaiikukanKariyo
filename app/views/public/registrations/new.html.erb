@@ -1,60 +1,81 @@
-<div class="container py-2 col-md-5">
+<div class="container py-2">
   <%= render "layouts/errors", obj: resource %>
-  <h4 class="text-center">新規会員登録</h4>
+  <div class="text-center">
+    <h4>新規会員登録</h4>
+  </div>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-
-  <div class="row justify-content-center">
-    <div class="d-flex flex-column">
-      <label>(姓)</label>
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", size: 13, class: 'mr-3'  %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-3">
+        <div class="form-group">
+          <label>(姓)</label>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "令和", size: 13, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="form-group">
+          <label>(名)</label>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",  placeholder: "道子", size: 13, class: 'form-control' %>
+        </div>
+      </div>
     </div>
-    <div class="d-flex flex-column">
-      <label>(名)</label>
-      <%= f.text_field :first_name,autofocus: true, autocomplete: "first_name",  placeholder: "道子", size: 13 %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-3">
+        <div class="form-group">
+          <label>(セイ)</label>
+          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana",  placeholder: "レイワ", size: 13, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="form-group">
+          <label>(メイ)</label>
+          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",  placeholder: "ミチコ", size: 13, class: 'form-control' %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center mt-2">
-    <div class="d-flex flex-column">
-      <label>(セイ)</label>
-      <%= f.text_field :last_name_kana, autoforcus: true, autocomplete: "last_name_kana",  placeholder: "レイワ", size: 13, class: 'mr-3' %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>電話番号(ハイフン無し)</label>
+          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: '0000000000', size: 30, class: 'form-control' %>
+        </div>
+      </div>
     </div>
-    <div class="d-flex flex-column">
-      <label>(メイ)</label>
-      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",  placeholder: "ミチコ", size: 13 %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size: 30, class: 'form-control' %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center mt-2">
-    <div class="d-flex flex-column">
-      <label>電話番号(ハイフンなし)</label>
-      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: '0000000000', size: 30 %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>パスワード
+            <% if @minimum_password_length %>
+              (<%= @minimum_password_length %> 文字以上)
+            <% end %>
+          </label>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center mt-2">
-    <div class="d-flex flex-column">
-      <label>メールアドレス</label>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size: 30 %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>パスワード確認用</label>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-center mt-2">
-    <div class="d-flex flex-column">
-      <label>パスワード
-      <% if @minimum_password_length %>
-      (<%= @minimum_password_length %> 文字以上)
-      <% end %>
-      </label>
-      <%= f.password_field :password, autocomplete: "new-password", size: 30 %>
+    <div class="row justify-content-center text-center mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.submit "新規登録", class: 'btn btn-base btn-block' %>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="row justify-content-center mt-2">
-    <div class="d-flex flex-column">
-      <label>パスワード確認用</label>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 30 %>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-    <%= f.submit "新規登録", class: 'btn btn-base my-3' %>
-  </div>
   <% end %>
 </div>
+
+

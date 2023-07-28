@@ -1,10 +1,10 @@
-<div class="container pb-5">
+<div class=" container pb-5">
   <% @gyms.each do |gym| %>
     <div class="row justify-content-center border border-warning rounded rounded-3 mb-3">
-      <div class="col-md-4">
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <%= image_tag gym.get_image(300, 300), class: 'rounded my-2' %>
       </div>
-      <div class="col-md-4">
+      <div class="col-lg-4 col-md-6 col-sm-12">
         <%= link_to gym_path(gym.id) do %>
           <h5 class="py-2 mt-3"><strong>&ensp;<%= gym.name %></strong></h5>
         <% end %>
@@ -13,7 +13,7 @@
         <%= link_to gym_path(gym.id) do %>
           <i class="fas fa-info-circle"></i>詳細
         <% end %><br>
-        コメント数:<%= gym.gym_comments.count %>
+        コメント数: <%= gym.gym_comments.count %>
         <div id="average_rating_<%= gym.id %>"></div>
         <div class="average-review-rating" data-score="<%= gym.gym_comments.average(:rate) || 0 %>"></div>
 
@@ -40,5 +40,6 @@
     <%= paginate @gyms %>
   </div>
 </div>
+
 
 

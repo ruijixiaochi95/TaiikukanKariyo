@@ -1,27 +1,25 @@
 <header>
   <div class="container py-1">
-    <div class="row">
-      <div class="col-8">
-        <a href="/" style="text-decoration: none;">
-          <span class>
-            <%= image_tag 'logo.png', :size => '75x75' %>
-            <span style="font-size: 25px; color: black; font-family: 'RocknRoll One', sans-serif;">TaiikukanKariyo!</span>
-          </span>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-8">
+        <a href="/" style="text-decoration: none; display: flex; align-items: center;">
+          <%= image_tag 'logo.png', :size => '75x75' %>
+          <span style="font-size: 25px; color: black; font-family: 'RocknRoll One', sans-serif;">TaiikukanKariyo!</span>
         </a>
       </div>
-      <div class="col-4 py-3">
+      <div class="col-12 col-md-4 py-3">
         <% if admin_signed_in? %>
-          <%= search_form_for q_gym, url: admin_search_path, class: "form-inline" do |f| %>
+          <%= search_form_for q_gym, url: admin_search_path, class: "form-inline my-2 my-md-0" do |f| %>
             <%= f.search_field :name_or_address_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
             <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
           <% end %>
         <% elsif gym_manager_signed_in? %>
-          <%= search_form_for q_gym, url: gym_manager_search_path, class: "form-inline" do |f| %>
+          <%= search_form_for q_gym, url: gym_manager_search_path, class: "form-inline my-2 my-md-0" do |f| %>
             <%= f.search_field :name_or_address_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
             <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
           <% end %>
         <% else %>
-          <%= search_form_for q_gym, url: search_path, class: "form-inline" do |f| %>
+          <%= search_form_for q_gym, url: search_path, class: "form-inline my-2 my-md-0" do |f| %>
             <%= f.search_field :name_or_address_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
             <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
           <% end %>
@@ -30,3 +28,8 @@
     </div>
   </div>
 </header>
+
+
+
+
+

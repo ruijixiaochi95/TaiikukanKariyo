@@ -1,17 +1,19 @@
 <div class="container text-center py-5">
   <h4 class="mb-3">体育館管理者一覧</h4>
-  <div class="row">
-    <table class="table table-bordered col-8 offset-2">
+  <div class="table">
+    <table class="table table-bordered">
       <thead>
-        <th>氏名</th>
-        <th>メールアドレス</th>
+        <tr>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+        </tr>
       </thead>
       <tbody>
         <% @gym_managers.each do |gym_manager| %>
         <tr>
           <td>
             <%= link_to admin_gym_manager_path(gym_manager.id) do %>
-            <%= gym_manager.last_name %>&emsp;<%= gym_manager.first_name %>
+              <%= gym_manager.last_name %>&emsp;<%= gym_manager.first_name %>
             <% end %>
           </td>
           <td><%= gym_manager.email %></td>

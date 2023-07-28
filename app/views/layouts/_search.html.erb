@@ -3,12 +3,12 @@
 <% elsif gyms.present? %>
   <% gyms.each do |gym| %>
     <div class="row justify-content-center border border-warning rounded rounded-3 mb-3">
-      <div class="col-md-5">
+      <div class="col-md-4">
         <%= image_tag gym.get_image(300, 300), class: 'rounded my-2' %>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-4">
         <%= link_to gym_path(gym.id) do %>
-          <h5 class="py-1 mt-5"><strong>&ensp;<%= gym.name %></strong></h5>
+          <h5 class="py-2 mt-3"><strong>&ensp;<%= gym.name %></strong></h5>
         <% end %>
         <i class="fas fa-map-marker-alt"></i>
         <%= gym.address %><br>

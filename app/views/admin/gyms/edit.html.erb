@@ -1,60 +1,85 @@
-<div class="container py-5 mx-auto col-4">
+<div class="container py-5 mx-auto">
   <%= render 'layouts/errors', obj: @gym %>
   <h4 class="text-center mb-3">体育館編集</h4>
-    <%= form_with model: [:admin, @gym] do |f| %>
-    <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">体育館画像　　　　</label>
-    <div class="col-sm-6">
-      <%= f.file_field :image, class: 'py-2' %>
+  <%= form_with model: [:admin, @gym] do |f| %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>体育館画像</label><br>
+          <%= f.file_field :image %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">体育館名　　　　　</label>
-    <div class="col-sm-6">
-      <%= f.text_field :name, placeholder: "体育館名" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>体育館名</label>
+          <%= f.text_field :name, placeholder: "体育館名", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">郵便番号　　　　　</label>
-    <div class="col-sm-6">
-      <%= f.text_field :postal_code, placeholder: "郵便番号" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>郵便番号</label>
+          <%= f.text_field :postal_code, placeholder: "郵便番号", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">住所　　　　　　　</label>
-    <div class="col-sm-6">
-      <%= f.text_field :address, placeholder: "住所" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>住所</label>
+          <%= f.text_field :address, placeholder: "住所", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">電話番号　　　　　</label>
-    <div class="col-sm-6">
-      <%= f.text_field :phone_number, placeholder: "電話番号" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>電話番号</label>
+          <%= f.text_field :phone_number, placeholder: "電話番号", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">使用料金（１時間）</label>
-    <div class="col-sm-6">
-      <%= f.text_field :usage_fee, placeholder: "500" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>使用料金（30）</label>
+          <%= f.text_field :usage_fee, placeholder: "500", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">説明　　　　　　　</label>
-    <div class="col-sm-6">
-      <%= f.text_area :caption, placeholder: "ここに説明文を記述します" %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>説明</label>
+          <%= f.text_area :caption, placeholder: "ここに説明文を記述します", class: "form-control" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="form-group row justify-content-center">
-    <label class="col-sm-6 col-form-label text-right">ステータス　　　　</label>
-    <div class="col-sm-6">
-      <%= f.radio_button :is_open, :false %>
-      <%= f.label :is_open, "予約可", {value: :false, style: "display: inline-block;"} %>&emsp;
-      <%= f.radio_button :is_open, :true %>
-      <%= f.label :is_open, "予約不可", {value: :true, style: "display: inline-block;"} %>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <div class="text-center">
+          <%= f.radio_button :is_open, :false %>
+          <%= f.label :is_open, "予約可", {value: :false, style: "display: inline-block;"} %>&emsp;
+          <%= f.radio_button :is_open, :true %>
+          <%= f.label :is_open, "予約不可", {value: :true, style: "display: inline-block;"} %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-    <div class="form-group text-center">
-      <%= f.submit "変更を保存", class: "btn btn-base" %>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.submit "変更を保存", class: "btn btn-base btn-block" %>
+        </div>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 </div>
+
+
+
+
