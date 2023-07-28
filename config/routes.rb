@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     get 'homes/top'
   end
   scope module: :public do
-    get "search" => "searches#search"
+    get "search" => "searches#search", as: :search
     get 'users/my_page' => 'users#show'
     get 'users/infomation/edit' => 'users#edit'
     patch '/users/infomation' => 'users#update'
