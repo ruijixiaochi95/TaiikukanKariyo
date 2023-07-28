@@ -21,10 +21,7 @@
             <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
           <% end %>
         <% else %>
-          <%= search_form_for q_gym, url: search_path, class: "form-inline" do |f| %>
-            <%= f.search_field :name_or_address_cont, class: "form-control mr-sm-2", placeholder: "体育館検索" %>
-            <%= f.submit "検索", class: "btn btn-base my-2 my-sm-0" %>
-          <% end %>
+          
         <% end %>
       </div>
     </div>
