@@ -1,5 +1,5 @@
 # TiikukanKariyo
--[TaiikukanKariyo](http://54.199.194.248/)
+[TaiikukanKariyo](http://54.199.194.248/)
 
 ## サイト概要
 ### サイトテーマ
