@@ -1,26 +1,30 @@
 <div class="container">
   <div class="row justify-content-center">
-    <table class="table text-center col-6">
-      <thead>
-        <tr>
-          <th>予約したい設備を選択してください</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @facilities.each do |facility| %>
-        <tr>
-          <td>
-            <% if facility.is_open == false %>
-              <%= link_to gym_facility_reservations_path(@gym, facility) do %>
-                <%= facility.name %>
+    <% if @facilities.present? %>
+      <table class="table text-center col-6">
+        <thead>
+          <tr>
+            <th>予約したい設備を選択してください</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @facilities.each do |facility| %>
+          <tr>
+            <td>
+              <% if facility.is_open == false %>
+                <%= link_to gym_facility_reservations_path(@gym, facility) do %>
+                  <%= facility.name %>
+                <% end %>
+              <% else %>
+                <%= facility.name %><span>　　※現在予約することが出来ません</span>
               <% end %>
-            <% elsif facility.is_open == true %>
-              <%= facility.name %><span>　　※現在予約することが出来ません</span>
+            </td>
+          </tr>
           <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    <% else %>
+      <p>予約ができる設備が現在ありません</p>
+    <% end %>
   </div>
 </div>
