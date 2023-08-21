@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="app/javascript/script.js" defer></script>
+    <%= javascript_pack_tag 'application' , 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <div class="content">
-    <div id="loading"></div>
+    <div id="loading">
+      <p>Loading...</p>
+    </div>
     <%= render 'layouts/header', q_gym: @q_gym %>
     <%= render 'layouts/nav' %>
     <main>

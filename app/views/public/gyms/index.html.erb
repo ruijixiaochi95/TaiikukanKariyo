@@ -20,7 +20,7 @@
         <div class="average-review-rating" data-score="<%= gym.gym_comments.average(:rate) || 0 %>"></div>
 
         <script>
-          $(document).on('turbolinks:load', function() {
+          $(document).on('DOMContentLoaded', function() {
             let averageRatingElem = document.querySelector('#average_rating_<%= gym.id %>');
             let averageRating = <%= gym.gym_comments.average(:rate) || 0 %>;
 

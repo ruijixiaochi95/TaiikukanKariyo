@@ -2,8 +2,9 @@
 //   // 一旦hide()で隠してフェードインさせる
 //   $('div').hide().fadeIn('slow');
 // });
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const loadingAreaGrey = document.querySelector('#loading');
+  const loadingText = document.querySelector('#loading p')
 
   window.addEventListener('load', () => {
     loadingAreaGrey.animate(
@@ -12,8 +13,19 @@ document.addEventListener('turbolinks:load', () => {
         visibility: 'hidden',
       },
       {
-        duration: 2000,
-        delay: 1200,
+        duration: 500,
+        delay: 300,
+        easing: 'ease',
+        fill: 'forwards',
+      }
+    );
+    
+    loadingText.animate(
+      {
+        opacity: [1, 0],
+      },
+      {
+        duration: 300,
         easing: 'ease',
         fill: 'forwards',
       }
