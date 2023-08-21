@@ -25,3 +25,12 @@
   color: #00a381;
   border: 1px solid#00a381;
 }
+
+#loading {
+  background-color: #d3d3d3;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
