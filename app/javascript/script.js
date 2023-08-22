@@ -1,7 +1,3 @@
-// $(document).on('turbolinks:load', function() {
-//   // 一旦hide()で隠してフェードインさせる
-//   $('div').hide().fadeIn('slow');
-// });
 document.addEventListener('DOMContentLoaded', () => {
   const loadingAreaGrey = document.querySelector('#loading');
   const loadingText = document.querySelector('#loading p')
