@@ -1,5 +1,7 @@
 class GymManager::GymsController < ApplicationController
+  before_action :ensure_correct_gym_manager, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_gym_manager!
+  
   def new
     @gym = Gym.new
   end
@@ -47,4 +49,11 @@ class GymManager::GymsController < ApplicationController
   def gym_params
     params.require(:gym).permit(:name, :postal_code, :address, :phone_number, :caption, :is_open, :image, :latitude, :longitude, :usage_fee)
   end
+  
+  def ensure_correct_gym_manager
+    @gym = Gym.find(params[:id])
+    unless @gym.gym_manager == current_gym_manager
+      redirect_to gym_manager_gyms_path
+    end 
+  end 
 end
